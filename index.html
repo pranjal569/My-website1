@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Externiq | Art of Getting Internships</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #000; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        .page { display: none; min-height: 100vh; }
+        .page.active { display: block; }
+
+        #hero-bg {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1)), url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .course-card { transition: all 0.3s ease; border: 1px solid #222; cursor: pointer; }
+        .course-card:hover { border-color: #2563eb; background: rgba(37, 99, 235, 0.05); transform: translateY(-2px); }
+        
+        .large-title { font-size: clamp(2.5rem, 8vw, 5.5rem); line-height: 0.95; font-weight: 900; letter-spacing: -0.04em; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div id="landing-page" class="page active">
+        <section id="hero-bg" class="min-h-screen flex flex-col">
+            <nav class="flex items-center justify-between px-6 md:px-12 py-8 relative z-10">
+                <div class="text-2xl font-black tracking-tighter">EXTERNIQ</div>
+                <button onclick="openLogin()" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-sm font-bold transition shadow-lg shadow-blue-600/20">Get Started</button>
+            </nav>
+
+            <div class="flex-1 flex flex-col justify-center px-6 md:px-12 relative z-10 pb-20">
+                <p class="text-blue-500 font-bold tracking-[0.3em] text-xs mb-4 uppercase">Externiq: The Fast Track</p>
+                <h1 class="large-title uppercase mb-8">LAND INTERNSHIP <br> IN 30 DAYS.</h1>
+                
+                <button onclick="showPage('course-page')" class="w-fit group bg-white text-black pl-8 pr-2 py-2 rounded-full font-black flex items-center gap-6 hover:bg-blue-600 hover:text-white transition-all">
+                    ART OF COLD REACHOUT
+                    <div class="bg-blue-600 p-3 rounded-full group-hover:bg-white transition-all">
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-white group-hover:text-blue-600"></i>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 md:px-12 bg-zinc-950">
+            <h2 class="text-center text-4xl font-black uppercase mb-4 italic tracking-tighter">Digital <span class="text-blue-600">Products</span></h2>
+            <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto mt-16">
+                <div class="glass p-8 rounded-[40px] w-full md:w-[400px]">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-black uppercase">Resume Writing</h3>
+                        <span class="text-2xl font-black text-blue-500">₹999</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm mb-8 leading-relaxed">Tired of cookie-cutter resumes? Our service crafts personalized, ATS-friendly resumes that showcase your unique strengths.</p>
+                    <button onclick="openLogin()" class="w-full bg-blue-600 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition">Buy Now</button>
+                </div>
+                <div class="glass p-8 rounded-[40px] w-full md:w-[400px]">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-black uppercase">Mailing Templates</h3>
+                        <span class="text-2xl font-black text-blue-500">₹99</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm mb-8 leading-relaxed">Get our battle-tested cold mailing and follow-up templates engineered to grab attention and land opportunities.</p>
+                    <button onclick="openLogin()" class="w-full bg-blue-600 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition">Buy Now</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-12 px-6 border-t border-zinc-900 text-center bg-black">
+            <p class="text-[10px] text-zinc-800 tracking-[0.5em] font-black uppercase">© 2026 EXTERNIQ | UNLOCK OPPORTUNITIES</p>
+        </footer>
+    </div>
+
+    <div id="course-page" class="page">
+        <nav class="flex items-center justify-between px-6 py-4 border-b border-zinc-800 bg-black sticky top-0 z-50">
+            <div class="flex items-center gap-4">
+                <button onclick="showPage('landing-page')" class="text-zinc-400 hover:text-white"><i data-lucide="arrow-left"></i></button>
+                <span class="text-xl font-black tracking-tighter">EXTERNIQ</span>
+            </div>
+            <div class="italic font-bold text-blue-500">Art of Getting Internships</div>
+        </nav>
+
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+                <div>
+                    <h2 class="text-4xl font-black uppercase mb-2">The Curriculum</h2>
+                    <p class="text-zinc-500">8 Video Lectures • 2 Deep-Dive Modules</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex items-center gap-6">
+                    <div>
+                        <p class="text-xs font-bold text-zinc-500 uppercase">One-time access</p>
+                        <p class="text-2xl font-black text-white">₹299</p>
+                    </div>
+                    <button onclick="openPurchase()" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-2xl font-bold transition">Unlock Now</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-20">
+                <div onclick="openPurchase()" class="course-card bg-zinc-900/50 p-5 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center"><i data-lucide="lock" class="w-5 h-5 text-zinc-600"></i></div>
+                        <div><p class="text-sm font-bold uppercase">Lecture 1: The Outreach Mindset</p><p class="text-xs text-zinc-500">12:05</p></div>
+                    </div>
+                    <span class="text-[10px] bg-zinc-800 px-2 py-1 rounded text-zinc-500 font-bold">LOCKED</span>
+                </div>
+                <div onclick="openPurchase()" class="course-card bg-zinc-900/50 p-5 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center"><i data-lucide="lock" class="w-5 h-5 text-zinc-600"></i></div>
+                        <div><p class="text-sm font-bold uppercase">Lecture 2: Profile SEO Hacks</p><p class="text-xs text-zinc-500">18:40</p></div>
+                    </div>
+                    <span class="text-[10px] bg-zinc-800 px-2 py-1 rounded text-zinc-500 font-bold">LOCKED</span>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-900 pt-16 space-y-8">
+                <div>
+                    <h4 class="text-blue-500 font-black uppercase text-xs tracking-widest mb-3">Terms & Privacy</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed max-w-3xl">
+                        Externiq provides tools and services conditioned on your acceptance of our terms. We collect minimal data like email for access and use secure, encrypted PCI-compliant processors for payments. We do not store your card details on our servers.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-blue-500 font-black uppercase text-xs tracking-widest mb-3">Refund & Cancellations</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed max-w-3xl">
+                        All educational courses and digital products are non-refundable once purchased. Session rescheduling requires a 24-hour notice via email. All final decisions regarding refunds or service modifications remain at the sole discretion of Externiq management.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
+        <div class="glass p-10 rounded-[40px] max-w-sm w-full text-center relative border-white/10 shadow-2xl">
+            <button onclick="closeModal('loginModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
+            <div class="text-3xl font-black tracking-tighter mb-8">EXTERNIQ</div>
+            <p class="text-zinc-400 text-sm mb-8 italic">"We promise, logging in won't unlock a flood of emails or your ex's texts. Just your resources anytime you want!"</p>
+            <button onclick="handleGoogleSignIn()" class="w-full bg-white text-black py-4 rounded-2xl font-bold flex items-center justify-center gap-4 hover:bg-zinc-200 transition">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" class="w-5 h-5" alt="Google">
+                Sign in with Google
+            </button>
+        </div>
+    </div>
+
+    <div id="purchaseModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
+        <div class="glass p-10 rounded-[40px] max-w-sm w-full text-center relative border-white/10">
+            <button onclick="closeModal('purchaseModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
+            <div class="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="lock" class="text-blue-500 w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-black mb-2 uppercase italic">Locked Content</h3>
+            <p class="text-zinc-400 text-sm mb-8">Unlock the full "Art of Getting Internships" curriculum for a one-time payment.</p>
+            <button onclick="alert('Redirecting to secure Payment Gateway...')" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition">Pay ₹299 & Unlock</button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/91XXXXXXXXXX" class="fixed bottom-8 right-8 bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-[100]">
+        <i data-lucide="message-circle" fill="white" class="text-white"></i>
+    </a>
+
+    <script>
+        lucide.createIcons();
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function openLogin() {
+            document.getElementById('loginModal').classList.remove('hidden');
+        }
+
+        function openPurchase() {
+            document.getElementById('purchaseModal').classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function handleGoogleSignIn() {
+            // Function logic for Google Auth simulation
+            alert("Authenticating Google Account...");
+            closeModal('loginModal');
+            showPage('course-page');
+        }
+    </script>
+</body>
+</html>
