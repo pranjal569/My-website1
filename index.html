@@ -36,33 +36,27 @@
         .toast.info { background: #2563eb; color: white; }
         .founder-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); transition: border-color 0.3s; }
         .founder-card:hover { border-color: rgba(37,99,235,0.4); }
-        .avatar { .avatar { width: 80px; height: 80px; border-radius: 50%; background: transparent; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; flex-shrink: 0; overflow: hidden; }: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #1d4ed8, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; flex-shrink: 0; }
+        .avatar { width: 90px; height: 90px; min-width: 90px; min-height: 90px; border-radius: 50%; object-fit: cover; flex-shrink: 0; overflow: hidden; }
         .resource-card { background: rgba(255,255,255,0.02); border: 1px solid #222; border-radius: 16px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; text-decoration: none; color: white; }
         .resource-card:hover { border-color: #2563eb; background: rgba(37,99,235,0.05); }
         .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 300; align-items: center; justify-content: center; padding: 20px; }
         .video-modal.open { display: flex; }
-   @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.animate-scroll {
-    animation: scroll 20s linear infinite;
-    width: max-content;
-}
-.animate-scroll:hover {
-    animation-play-state: paused;
-} </style>
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll { animation: scroll 20s linear infinite; width: max-content; }
+        .animate-scroll:hover { animation-play-state: paused; }
+    </style>
 </head>
 <body>
 
 <div id="toast" class="toast"></div>
 
-<!-- ═══════════════ LANDING PAGE ═══════════════ -->
 <div id="landing-page" class="page active">
-
     <section id="hero-bg" class="min-h-screen flex flex-col">
         <nav class="flex items-center justify-between px-6 md:px-12 py-8 relative z-10">
-            <div class="<img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/okk.png" style="height:45px; object-fit:contain;"></div>
+            <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/okk.png" style="height:45px; object-fit:contain;">
             <div class="flex items-center gap-3">
                 <div id="nav-user-info" class="hidden items-center gap-3">
                     <span id="nav-user-email" class="text-xs text-zinc-400 hidden md:block"></span>
@@ -82,63 +76,29 @@
             </button>
         </div>
     </section>
-<!-- Results Strip -->
-<section class="py-16 px-6 bg-zinc-950 border-t border-b border-zinc-900">
-    <p class="text-center text-xs font-black tracking-[0.3em] text-zinc-600 uppercase mb-10">Built By People Who Cracked</p>
-    <div class="overflow-hidden relative">
-        <!-- Fade edges -->
-        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10"></div>
-        
-        <div class="flex animate-scroll gap-16 items-center" id="logo-strip">
-            <!-- Hindustan Times -->
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-xl tracking-tight">HT Hindustan Times</div>
-            </div>
-            <!-- FICCI -->
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-2xl tracking-widest">FICCI</div>
-            </div>
-            <!-- IndiGo -->
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-2xl italic">IndiGo ✈</div>
-            </div>
-            <!-- ITC -->
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-2xl tracking-widest">ITC</div>
-            </div>
-            <!-- Bombay Shaving -->
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-xl uppercase">Bombay Shaving Co.</div>
-            </div>
-            <!-- Grant Thornton -->
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-xl">#GTBharat</div>
-            </div>
 
-            <!-- Duplicate for seamless loop -->
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-xl tracking-tight">HT Hindustan Times</div>
-            </div>
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-2xl tracking-widest">FICCI</div>
-            </div>
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-2xl italic">IndiGo ✈</div>
-            </div>
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-2xl tracking-widest">ITC</div>
-            </div>
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-xl uppercase">Bombay Shaving Co.</div>
-            </div>
-            <div class="flex-shrink-0 flex items-center justify-center h-12 px-4">
-                <div class="text-zinc-400 font-black text-xl">#GTBharat</div>
+    <section class="py-16 px-6 bg-zinc-950 border-t border-b border-zinc-900">
+        <p class="text-center text-xs font-black tracking-[0.3em] text-zinc-600 uppercase mb-10">Built By People Who Cracked</p>
+        <div class="overflow-hidden relative">
+            <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10"></div>
+            <div class="flex animate-scroll gap-16 items-center">
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-xl tracking-tight">HT Hindustan Times</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl tracking-widest">FICCI</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl italic">IndiGo ✈</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl tracking-widest">ITC</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-xl uppercase">Bombay Shaving Co.</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-xl">#GTBharat</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-xl tracking-tight">HT Hindustan Times</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl tracking-widest">FICCI</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl italic">IndiGo ✈</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl tracking-widest">ITC</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-xl uppercase">Bombay Shaving Co.</div></div>
+                <div class="flex-shrink-0 flex items-center justify-center h-12 px-4"><div class="text-zinc-400 font-black text-xl">#GTBharat</div></div>
             </div>
         </div>
-    </div>
-</section>
-    <!-- Products Section -->
+    </section>
+
     <section class="py-24 px-6 md:px-12 bg-zinc-950">
         <h2 class="text-center text-4xl font-black uppercase mb-4 italic tracking-tighter">What We <span class="text-blue-600">Offer</span></h2>
         <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto mt-16">
@@ -153,7 +113,7 @@
             <div class="glass p-8 rounded-[40px] w-full md:w-[400px]">
                 <div class="flex justify-between items-start mb-4">
                     <h3 class="text-2xl font-black uppercase">1-on-1 Session</h3>
-                    <span class="text-2xl font-black text-blue-500">₹999</span>
+                    <span class="text-2xl font-black text-blue-500">₹599</span>
                 </div>
                 <p class="text-zinc-400 text-sm mb-8 leading-relaxed">40-minute live call with the instructor. CV review, outreach troubleshooting, personalised advice for your exact situation.</p>
                 <button onclick="openOneOnOne()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-zinc-200 transition">Book a Session</button>
@@ -161,13 +121,12 @@
         </div>
     </section>
 
-    <!-- Founders Section -->
     <section class="py-24 px-6 md:px-12 bg-black">
         <h2 class="text-center text-4xl font-black uppercase mb-4 italic tracking-tighter">The <span class="text-blue-600">Founders</span></h2>
         <p class="text-center text-zinc-500 text-sm mb-16 max-w-xl mx-auto">Built by people who've been exactly where you are — and figured out what actually works.</p>
         <div class="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             <div class="founder-card p-8 rounded-[32px] w-full md:w-[380px] flex gap-6 items-start">
-                <div <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/Co1.png" class="avatar" style="object-fit:cover;"></div>
+                <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/Co1.png" class="avatar">
                 <div>
                     <h3 class="text-xl font-black mb-1">Pranjal Singh</h3>
                     <p class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-3">Co-Founder & Instructor</p>
@@ -175,7 +134,7 @@
                 </div>
             </div>
             <div class="founder-card p-8 rounded-[32px] w-full md:w-[380px] flex gap-6 items-start">
-                <div <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/Co2.png" class="avatar" style="object-fit:cover;"></div>
+                <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/Co2.png" class="avatar">
                 <div>
                     <h3 class="text-xl font-black mb-1">Mansi Yadav</h3>
                     <p class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-3">Co-Founder & Operations</p>
@@ -190,12 +149,11 @@
     </footer>
 </div>
 
-<!-- ═══════════════ COURSE PAGE ═══════════════ -->
 <div id="course-page" class="page">
     <nav class="flex items-center justify-between px-6 py-4 border-b border-zinc-800 bg-black sticky top-0 z-50">
         <div class="flex items-center gap-4">
             <button onclick="showPage('landing-page')" class="text-zinc-400 hover:text-white"><i data-lucide="arrow-left"></i></button>
-            <span class="<img src="https://github.com/pranjal569/My-website1/blob/main/Gemini_Generated_Image_ovf418ovf418ovf4.png?raw=true" style="height:40px; object-fit:contain; mix-blend-mode:screen;"></span>
+            <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/okk.png" style="height:40px; object-fit:contain;">
         </div>
         <div class="flex items-center gap-4">
             <div class="italic font-bold text-blue-500 hidden md:block">Art of Getting Internships</div>
@@ -206,9 +164,7 @@
             <button id="course-nav-login" onclick="openLogin()" class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full text-xs font-bold transition">Login</button>
         </div>
     </nav>
-
     <div class="max-w-6xl mx-auto px-6 py-12">
-        <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
             <div>
                 <h2 class="text-4xl font-black uppercase mb-2">The Curriculum</h2>
@@ -229,11 +185,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Lectures Grid -->
         <div class="grid md:grid-cols-2 gap-4 mb-12" id="lectures-grid"></div>
-
-        <!-- Resources -->
         <div class="mb-20">
             <h3 class="text-xl font-black uppercase mb-6 flex items-center gap-3">
                 <i data-lucide="folder-open" class="text-blue-500 w-5 h-5"></i>
@@ -245,8 +197,7 @@
                 <p class="text-zinc-600 text-xs mt-1">CV template · Email templates · ChatGPT prompts · Sheets formula</p>
             </div>
             <div id="resources-unlocked" class="hidden space-y-3">
-                <a href="https://drive.google.com/drive/folders/1LjsYOVNf48Z5pr7un5qK_kCebLldCECn?usp=sharing"
-                   target="_blank" class="resource-card">
+                <a href="https://drive.google.com/drive/folders/1LjsYOVNf48Z5pr7un5qK_kCebLldCECn?usp=sharing" target="_blank" class="resource-card">
                     <div class="flex items-center gap-4">
                         <div class="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center">
                             <i data-lucide="folder" class="text-blue-500 w-5 h-5"></i>
@@ -260,8 +211,6 @@
                 </a>
             </div>
         </div>
-
-        <!-- Terms -->
         <div class="border-t border-zinc-900 pt-16 space-y-8">
             <div>
                 <h4 class="text-blue-500 font-black uppercase text-xs tracking-widest mb-3">Terms & Privacy</h4>
@@ -275,7 +224,6 @@
     </div>
 </div>
 
-<!-- ═══════════════ VIDEO MODAL ═══════════════ -->
 <div id="videoModal" class="video-modal">
     <div class="w-full max-w-4xl relative">
         <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-zinc-400 hover:text-white flex items-center gap-2 text-sm font-bold">
@@ -288,7 +236,6 @@
     </div>
 </div>
 
-<!-- ═══════════════ AUTH MODAL ═══════════════ -->
 <div id="loginModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
     <div class="glass p-10 rounded-[40px] max-w-sm w-full text-center relative border-white/10 shadow-2xl">
         <button onclick="closeModal('loginModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
@@ -299,10 +246,8 @@
             <button id="tab-signup" class="tab-btn flex-1 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest" onclick="switchTab('signup')">Sign Up</button>
         </div>
         <div class="space-y-3 text-left">
-            <input id="auth-email" type="email" placeholder="Your email"
-                class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
-            <input id="auth-password" type="password" placeholder="Password (min 6 chars)"
-                class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
+            <input id="auth-email" type="email" placeholder="Your email" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
+            <input id="auth-password" type="password" placeholder="Password (min 6 chars)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
         </div>
         <p id="confirm-notice" class="hidden text-zinc-500 text-xs mt-3 text-left">📧 We'll send a confirmation email — check your inbox!</p>
         <button id="auth-btn" onclick="handleAuth()" class="w-full mt-5 bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition flex items-center justify-center gap-2">
@@ -312,7 +257,6 @@
     </div>
 </div>
 
-<!-- ═══════════════ PURCHASE MODAL ₹299 ═══════════════ -->
 <div id="purchaseModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
     <div class="glass p-10 rounded-[40px] max-w-sm w-full text-center relative border-white/10">
         <button onclick="closeModal('purchaseModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
@@ -326,7 +270,6 @@
     </div>
 </div>
 
-<!-- ═══════════════ 1-ON-1 MODAL ₹999 ═══════════════ -->
 <div id="oneOnOneModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
     <div class="glass p-10 rounded-[40px] max-w-sm w-full text-center relative border-white/10">
         <button onclick="closeModal('oneOnOneModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
@@ -335,27 +278,22 @@
         </div>
         <h3 class="text-2xl font-black mb-2 uppercase italic">1-on-1 Session</h3>
         <p class="text-zinc-400 text-sm mb-2">40-min live call. CV review, outreach help, personalised guidance.</p>
-        <p class="text-3xl font-black text-white mb-2">₹999</p>
+        <p class="text-3xl font-black text-white mb-2">₹599</p>
         <p class="text-zinc-600 text-xs mb-8">Calendar link sent to your email after payment.</p>
-        <button onclick="handlePayment('oneonone')" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-zinc-200 transition">Book & Pay ₹999</button>
+        <button onclick="handlePayment('oneonone')" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-zinc-200 transition">Book & Pay ₹599</button>
     </div>
 </div>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/91XXXXXXXXXX" class="fixed bottom-8 right-8 bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-[100]">
-    <i data-lucide="message-circle" fill="white" class="text-white"></i>
+<a href="mailto:contact@internfoxx.in" class="fixed bottom-8 right-8 bg-blue-600 p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-[100]">
+    <i data-lucide="mail" class="text-white"></i>
 </a>
 
 <script>
-// ─── Config ───────────────────────────────────────────────────
 const SUPABASE_URL = 'https://wkhtqqqreouiuspjlhxh.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndraHRxcXFyZW91aXVzcGpsaHhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwOTQ3NDAsImV4cCI6MjA5MjY3MDc0MH0.u3mwidWc7IfkkD6EW4zw8rLBYdEaAY77MlB7J-a1Loo';
-const RAZORPAY_KEY = 'rzp_test_SheJBRZGiV2tX6'; // ← change to live key after Razorpay approval
-
+const RAZORPAY_KEY = 'rzp_test_SheJBRZGiV2tX6';
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-// ─── Lectures (replace youtube_id with real IDs when ready) ───
 const TEST_ID = 'ihatLqvEzlQ';
 const lectures = [
     { title: 'Session 1: What is an Internship & The Big Picture', duration: '~40 min', youtube_id: TEST_ID },
@@ -365,17 +303,12 @@ const lectures = [
     { title: 'Session 5: Writing Emails That Get Replies', duration: '~55 min', youtube_id: TEST_ID },
     { title: 'Session 6: Full System Run + 7-Day Action Plan', duration: '~60 min', youtube_id: TEST_ID },
 ];
-
-// ─── State ────────────────────────────────────────────────────
 let currentUser = null;
 let hasPurchased = false;
 let currentTab = 'login';
-
-// ─── Boot ─────────────────────────────────────────────────────
 lucide.createIcons();
 renderLectures();
 initAuth();
-
 async function initAuth() {
     const { data: { session } } = await sb.auth.getSession();
     if (session?.user) await setUser(session.user);
@@ -384,29 +317,23 @@ async function initAuth() {
         else clearUser();
     });
 }
-
-// ─── User ─────────────────────────────────────────────────────
 async function setUser(user) {
     currentUser = user;
     const { data } = await sb.from('purchases')
         .select('id').eq('user_id', user.id).eq('status', 'paid').maybeSingle();
     hasPurchased = !!data;
-
     document.getElementById('nav-get-started').classList.add('hidden');
     const ni = document.getElementById('nav-user-info');
     ni.classList.remove('hidden'); ni.classList.add('flex');
     document.getElementById('nav-user-email').textContent = user.email;
-
     document.getElementById('course-nav-login').classList.add('hidden');
     const cn = document.getElementById('course-nav-user');
     cn.classList.remove('hidden'); cn.classList.add('flex');
     document.getElementById('course-nav-email').textContent = user.email;
-
     renderLectures();
     updateCourseUI();
     closeModal('loginModal');
 }
-
 function clearUser() {
     currentUser = null; hasPurchased = false;
     document.getElementById('nav-get-started').classList.remove('hidden');
@@ -417,8 +344,6 @@ function clearUser() {
     document.getElementById('course-nav-user').classList.remove('flex');
     renderLectures(); updateCourseUI();
 }
-
-// ─── Lectures ─────────────────────────────────────────────────
 function renderLectures() {
     document.getElementById('lectures-grid').innerHTML = lectures.map((l, i) => `
         <div onclick="${hasPurchased ? `playLecture(${i})` : 'openPurchase()'}"
@@ -438,7 +363,6 @@ function renderLectures() {
         </div>`).join('');
     lucide.createIcons();
 }
-
 function updateCourseUI() {
     const paid = hasPurchased;
     document.getElementById('purchase-box').classList.toggle('hidden', paid);
@@ -448,20 +372,16 @@ function updateCourseUI() {
     document.getElementById('resources-unlocked').classList.toggle('hidden', !paid);
     lucide.createIcons();
 }
-
 function playLecture(i) {
     const l = lectures[i];
-    document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${l.youtube_id}?autoplay=1`;
+    document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${l.youtube_id}?autoplay=1&modestbranding=1&rel=0`;
     document.getElementById('video-title').textContent = l.title;
     document.getElementById('videoModal').classList.add('open');
 }
-
 function closeVideoModal() {
     document.getElementById('videoModal').classList.remove('open');
     document.getElementById('videoFrame').src = '';
 }
-
-// ─── Auth ─────────────────────────────────────────────────────
 function switchTab(tab) {
     currentTab = tab;
     document.getElementById('tab-login').classList.toggle('active', tab === 'login');
@@ -470,7 +390,6 @@ function switchTab(tab) {
     document.getElementById('confirm-notice').classList.toggle('hidden', tab === 'login');
     document.getElementById('auth-error').classList.add('hidden');
 }
-
 async function handleAuth() {
     const email = document.getElementById('auth-email').value.trim();
     const password = document.getElementById('auth-password').value;
@@ -492,41 +411,34 @@ async function handleAuth() {
     btn.innerHTML = `<span id="auth-btn-text">${currentTab === 'login' ? 'Login' : 'Create Account'}</span>`;
     btn.disabled = false;
 }
-
 async function handleSignOut() {
     await sb.auth.signOut();
     showToast('Signed out.', 'info');
     showPage('landing-page');
 }
-
-// ─── Payments ─────────────────────────────────────────────────
 function openPurchase() {
     if (!currentUser) { openLogin(); return; }
     document.getElementById('purchaseModal').classList.remove('hidden');
 }
-
 function openOneOnOne() {
     if (!currentUser) { openLogin(); return; }
     document.getElementById('oneOnOneModal').classList.remove('hidden');
 }
-
 async function handlePayment(type) {
     if (!currentUser) { openLogin(); return; }
     const isCourse = type === 'course';
     closeModal(isCourse ? 'purchaseModal' : 'oneOnOneModal');
-
     const options = {
         key: RAZORPAY_KEY,
-        amount: isCourse ? 29900 : 99900, // paise
+        amount: isCourse ? 29900 : 59900,
         currency: 'INR',
         name: 'InternFoxx',
-        description: isCourse ? 'Course Access — ₹299' : '1-on-1 Session — ₹999',
+        description: isCourse ? 'Course Access — ₹299' : '1-on-1 Session — ₹599',
         handler: async function(response) {
-            // Record purchase in Supabase
             await sb.from('purchases').insert({
                 user_id: currentUser.id,
-                product: isCourse ? 'course_299' : 'oneonone_999',
-                amount: isCourse ? 299 : 999,
+                product: isCourse ? 'course_299' : 'oneonone_599',
+                amount: isCourse ? 299 : 599,
                 status: 'paid',
                 access_expires_at: isCourse
                     ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString()
@@ -539,7 +451,8 @@ async function handlePayment(type) {
                 showToast('🎉 Course unlocked! Start watching.', 'success');
                 showPage('course-page');
             } else {
-                showToast('✅ Booked! Calendar link coming to your email.', 'success');
+                window.open('https://calendly.com/pranjalgunsatiya/30min', '_blank');
+                showToast('✅ Booked! Opening calendar...', 'success');
             }
         },
         prefill: { email: currentUser.email },
@@ -548,8 +461,6 @@ async function handlePayment(type) {
     };
     new Razorpay(options).open();
 }
-
-// ─── Helpers ──────────────────────────────────────────────────
 function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
