@@ -430,7 +430,7 @@ async function handlePayment(type) {
     closeModal(isCourse ? 'purchaseModal' : 'oneOnOneModal');
     const options = {
         key: RAZORPAY_KEY,
-        amount: isCourse ? 100 : 59900,
+        amount: isCourse ? 29900 : 59900,
         currency: 'INR',
         name: 'InternFoxx',
         description: isCourse ? 'Course Access — ₹299' : '1-on-1 Session — ₹599',
