@@ -379,8 +379,7 @@ function updateCourseUI() {
 }
 function playLecture(i) {
     const l = lectures[i];
-    document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${l.youtube_id}?autoplay=1&modestbranding=1&rel=0`;
-    document.getElementById('video-title').textContent = l.title;
+document.getElementById('videoFrame').src = l.video_url + "?autoplay=1";    document.getElementById('video-title').textContent = l.title;
     document.getElementById('videoModal').classList.add('open');
 }
 function closeVideoModal() {
