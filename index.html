@@ -27,6 +27,149 @@
         .page { display: none; min-height: 100vh; }
         .page.active { display: block; }
 
+        /* ===================== NAVBAR — OPTION B ===================== */
+        .site-nav {
+            width: 100%;
+            height: 64px;
+            background: #06101f;
+            border-bottom: 2px solid #1a3a6e;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.6);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-back-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid #1a3060;
+            background: rgba(37,99,235,0.07);
+            cursor: pointer;
+            color: #3b67b8;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .nav-back-btn:hover {
+            border-color: #2563eb;
+            background: rgba(37,99,235,0.15);
+            color: #7fb3ff;
+        }
+
+        .nav-logo-pill {
+            background: #0d1f3c;
+            border: 1px solid #1a3a6e;
+            border-radius: 10px;
+            padding: 5px 12px 5px 8px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo-pill img {
+            height: 34px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .nav-tagline {
+            font-size: 13px;
+            font-style: italic;
+            font-weight: 700;
+            color: #4a82e0;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #1a3a6e;
+            flex-shrink: 0;
+        }
+
+        .nav-login-btn {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid #2563eb;
+            padding: 7px 22px;
+            border-radius: 99px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .nav-login-btn:hover {
+            background: #2563eb;
+            box-shadow: 0 0 20px rgba(37,99,235,0.4);
+        }
+
+        .nav-getstarted-btn {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 99px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            box-shadow: 0 0 16px rgba(37,99,235,0.35);
+            white-space: nowrap;
+        }
+        .nav-getstarted-btn:hover {
+            background: #1d4ed8;
+            box-shadow: 0 0 24px rgba(37,99,235,0.5);
+        }
+
+        .nav-signout-btn {
+            border: 1px solid rgba(255,255,255,0.12);
+            background: none;
+            color: rgba(255,255,255,0.5);
+            padding: 7px 16px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.03em;
+            transition: all 0.2s;
+        }
+        .nav-signout-btn:hover {
+            border-color: rgba(255,255,255,0.25);
+            color: #fff;
+        }
+
+        @media (max-width: 640px) {
+            .site-nav { padding: 0 16px; height: 56px; }
+            .nav-tagline { display: none; }
+            .nav-dot { display: none; }
+        }
+        /* ===================== END NAVBAR ===================== */
+
         /* HERO */
         #hero-bg {
             background-image:
@@ -34,33 +177,6 @@
                 url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000');
             background-size: cover;
             background-position: center;
-        }
-
-        /* NAV */
-        .site-nav {
-            width: 100%;
-            background: #fff;
-            border-bottom: 2.5px solid #2563eb;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 44px;
-            position: relative;
-            z-index: 50;
-            transparency: 50%;
-        }
-        /* logo-wrap not needed on white bg — logo shows naturally */
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            background: none;
-            border: none;
-            border-radius: 0;
-            padding: 0;
-            box-shadow: none;
-        }
-        @media (max-width: 640px) {
-            .site-nav { padding: 10px 18px; }
         }
 
         /* GLASS */
@@ -163,7 +279,6 @@
         }
         .resource-card:hover { border-color: #2563eb; background: rgba(37,99,235,0.05); }
 
-        /* RESOURCES LOCKED — more visible */
         .resources-locked-box {
             background: linear-gradient(135deg, rgba(37,99,235,0.07), rgba(0,0,0,0));
             border: 1px dashed rgba(37,99,235,0.35);
@@ -251,16 +366,6 @@
             .site-footer { padding: 20px; }
         }
 
-        /* LOGO WRAP DARK (course nav) */
-        .logo-wrap-dark {
-            background: rgba(255,255,255,0.06);
-            border-radius: 10px;
-            padding: 4px 10px 4px 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-        }
-
         /* USER EMAIL BADGE */
         .user-email-badge {
             background: rgba(37,99,235,0.15);
@@ -284,29 +389,26 @@
 <!-- ===================== LANDING PAGE ===================== -->
 <div id="landing-page" class="page active">
 
-    <!-- HERO -->
-    <section id="hero-bg" class="flex flex-col" style="min-height:calc(100vh - 63px);">
-        <nav class="site-nav">
-            <div class="logo-wrap">
-                <img
-                    src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png"
-                    style="height:42px; object-fit:contain; display:block;"
-                    alt="InternFoxx"
-                >
+    <!-- LANDING NAV: logo left | Get Started right (NO tagline) -->
+    <nav class="site-nav">
+        <div class="nav-left">
+            <div class="nav-logo-pill">
+                <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png" alt="InternFoxx">
             </div>
-            <div class="flex items-center gap-3">
-                <div id="nav-user-info" class="hidden items-center gap-3">
-                    <span id="nav-user-email" class="user-email-badge hidden md:block"></span>
-                    <button onclick="handleSignOut()" style="border:1px solid #ddd; background:none; color:#333; padding:7px 18px; border-radius:99px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.borderColor='#999'" onmouseout="this.style.borderColor='#ddd'">Sign Out</button>
-                </div>
-                <button id="nav-get-started" onclick="openLogin()"
-                    style="background:#2563eb; color:#fff; border:none; padding:8px 22px; border-radius:99px; font-size:13px; font-weight:700; cursor:pointer; transition:background 0.2s; letter-spacing:0.02em;"
-                    onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
-                    Get Started
-                </button>
+        </div>
+        <div class="nav-right">
+            <!-- shown when logged out -->
+            <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
+            <!-- shown when logged in -->
+            <div id="nav-user-info" class="hidden items-center gap-3" style="display:none;">
+                <span id="nav-user-email" class="user-email-badge"></span>
+                <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
             </div>
-        </nav>
+        </div>
+    </nav>
 
+    <!-- HERO -->
+    <section id="hero-bg" class="flex flex-col" style="min-height:calc(100vh - 64px);">
         <div class="flex-1 flex flex-col justify-center px-6 md:px-12 relative z-10 pb-20 pt-16">
             <p style="font-size:11px; font-weight:800; letter-spacing:0.28em; text-transform:uppercase; color:#fff; margin-bottom:20px; text-shadow:0 1px 8px rgba(0,0,0,0.9);">INTERNFOXX: THE FAST TRACK</p>
             <h1 class="large-title uppercase mb-8"><span style="color:#2563eb;">LAND</span> INTERNSHIP <br> IN <span style="color:#2563eb;">30 DAYS.</span></h1>
@@ -335,7 +437,6 @@
                 <div class="flex-shrink-0 flex items-center h-12 px-4"><div class="text-zinc-400 font-black text-xl">Swiggy</div></div>
                 <div class="flex-shrink-0 flex items-center h-12 px-4"><div class="text-zinc-400 font-black text-xl">Bajaj Capital</div></div>
                 <div class="flex-shrink-0 flex items-center h-12 px-4"><div class="text-zinc-400 font-black text-xl">#GTBharat</div></div>
-                <!-- dupe for seamless loop -->
                 <div class="flex-shrink-0 flex items-center h-12 px-4"><div class="text-zinc-400 font-black text-xl tracking-tight">HT Hindustan Times</div></div>
                 <div class="flex-shrink-0 flex items-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl tracking-widest">FICCI</div></div>
                 <div class="flex-shrink-0 flex items-center h-12 px-4"><div class="text-zinc-400 font-black text-2xl italic">IndiGo ✈</div></div>
@@ -415,8 +516,7 @@
                 <div>
                     <div class="flex items-center gap-3 mb-1">
                         <h3 class="text-xl font-black">Pranjal Singh</h3>
-                        <a href="https://www.linkedin.com/in/pranjal569" target="_blank"
-                           class="text-zinc-500 hover:text-blue-400 transition-colors" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/pranjal569" target="_blank" class="text-zinc-500 hover:text-blue-400 transition-colors">
                             <i data-lucide="linkedin" class="w-4 h-4"></i>
                         </a>
                     </div>
@@ -431,8 +531,7 @@
                 <div>
                     <div class="flex items-center gap-3 mb-1">
                         <h3 class="text-xl font-black">Mansi Yadav</h3>
-                        <a href="https://www.linkedin.com/in/mansi-yadav-396101326" target="_blank"
-                           class="text-zinc-500 hover:text-blue-400 transition-colors" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/mansi-yadav-396101326" target="_blank" class="text-zinc-500 hover:text-blue-400 transition-colors">
                             <i data-lucide="linkedin" class="w-4 h-4"></i>
                         </a>
                     </div>
@@ -456,24 +555,29 @@
 <!-- ===================== COURSE PAGE ===================== -->
 <div id="course-page" class="page">
 
-    <!-- COURSE NAV -->
-    <nav style="background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);border-bottom:1px solid #111;padding:11px 44px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;">
-        <div style="display:flex;align-items:center;gap:14px;">
-            <button onclick="showPage('landing-page')" style="background:none;border:none;cursor:pointer;color:#555;padding:4px;display:flex;align-items:center;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">
-                <i data-lucide="arrow-left" style="width:18px;height:18px;"></i>
+    <!-- COURSE NAV: back + logo pill left | tagline + Login right -->
+    <nav class="site-nav">
+        <div class="nav-left">
+            <button class="nav-back-btn" onclick="showPage('landing-page')">
+                <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
             </button>
-            <div class="logo-wrap" style="padding:4px 10px 4px 7px;">
-                <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png"
-                     style="height:30px;object-fit:contain;display:block;" alt="InternFoxx">
+            <div class="nav-logo-pill">
+                <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png" alt="InternFoxx">
             </div>
-            <span style="color:#2563eb;font-size:13px;font-style:italic;font-weight:700;" class="hidden md:block">Art of Getting Internships</span>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-            <div id="course-nav-user" class="hidden items-center gap-3">
-                <span id="course-nav-email" class="user-email-badge hidden md:block"></span>
-                <button onclick="handleSignOut()" style="background:none;border:1px solid #222;color:#888;padding:6px 16px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#444';this.style.color='#fff'" onmouseout="this.style.borderColor='#222';this.style.color='#888'">Sign Out</button>
+        <div class="nav-right">
+            <!-- logged out state -->
+            <div id="course-nav-login-area" class="flex items-center gap-3">
+                <span class="nav-tagline">Art of Getting Internships</span>
+                <div class="nav-dot"></div>
+                <button id="course-nav-login" onclick="openLogin()" class="nav-login-btn">Login</button>
             </div>
-            <button id="course-nav-login" onclick="openLogin()" style="background:#2563eb;color:#fff;border:none;padding:7px 18px;border-radius:99px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 0 16px rgba(37,99,235,0.3);transition:background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Login</button>
+            <!-- logged in state -->
+            <div id="course-nav-user" style="display:none;" class="items-center gap-3 flex">
+                <span class="nav-tagline">Art of Getting Internships</span>
+                <span id="course-nav-email" class="user-email-badge"></span>
+                <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
+            </div>
         </div>
     </nav>
 
@@ -507,9 +611,7 @@
                 <span class="bg-green-600/20 border border-green-600/40 text-green-400 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Free Preview</span>
                 <h3 class="text-lg font-black uppercase">Session 0 — Watch Before You Buy</h3>
             </div>
-            <!-- Compact card — same shape/size as locked session cards, click to open modal -->
-            <div onclick="playSession0()"
-                 class="course-card bg-zinc-900/50 p-5 rounded-2xl flex items-center justify-between cursor-pointer">
+            <div onclick="playSession0()" class="course-card bg-zinc-900/50 p-5 rounded-2xl flex items-center justify-between cursor-pointer">
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-green-600/10 border border-green-600/30 rounded-lg flex items-center justify-center flex-shrink-0">
                         <i data-lucide="play-circle" class="w-5 h-5 text-green-500"></i>
@@ -619,7 +721,7 @@
 </div>
 
 
-<!-- ===================== PURCHASE MODAL (₹299 course) ===================== -->
+<!-- ===================== PURCHASE MODAL ===================== -->
 <div id="purchaseModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
     <div class="glass p-10 rounded-[40px] max-w-sm w-full text-center relative">
         <button onclick="closeModal('purchaseModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
@@ -634,14 +736,13 @@
 </div>
 
 
-<!-- ===================== BUNDLE MODAL (₹799 or ₹500 top-up) ===================== -->
+<!-- ===================== BUNDLE MODAL ===================== -->
 <div id="bundleModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
     <div class="glass p-10 rounded-[40px] max-w-sm w-full text-center relative">
         <button onclick="closeModal('bundleModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
         <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="video" class="text-purple-400 w-8 h-8"></i>
         </div>
-        <!-- shown when user doesn't have course -->
         <div id="bundle-full">
             <h3 class="text-3xl uppercase mb-2">Full Bundle</h3>
             <p class="text-zinc-400 text-sm mb-1">All 6 sessions + 40-min live call with Pranjal.</p>
@@ -649,7 +750,6 @@
             <p class="text-4xl text-purple-400 mb-8" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">₹799</p>
             <button onclick="handlePayment('bundle')" class="w-full bg-purple-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-purple-700 transition">Book Bundle · ₹799</button>
         </div>
-        <!-- shown when user already has the course -->
         <div id="bundle-topup" class="hidden">
             <div class="bg-green-900/20 border border-green-800/40 rounded-2xl px-4 py-3 mb-6 flex items-center gap-3">
                 <i data-lucide="check-circle" class="text-green-500 w-4 h-4 flex-shrink-0"></i>
@@ -679,7 +779,6 @@ const RAZORPAY_KEY = 'rzp_live_Si59qCPUeb5e3q';
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// ← SWAP THIS with your real Gumlet video IDs when ready
 const SESSION1_GUMLET = 'https://play.gumlet.io/embed/69f102b2a3dc19951f210c86';
 const PLACEHOLDER_GUMLET = 'https://play.gumlet.io/embed/69f102b2a3dc19951f210c86';
 
@@ -715,16 +814,16 @@ async function setUser(user) {
         .select('id').eq('user_id', user.id).eq('status', 'paid').maybeSingle();
     hasPurchased = !!data;
 
-    // Landing nav
-    document.getElementById('nav-get-started').classList.add('hidden');
+    // Landing nav — swap to signed-in state
+    document.getElementById('nav-get-started').style.display = 'none';
     const ni = document.getElementById('nav-user-info');
-    ni.classList.remove('hidden'); ni.classList.add('flex');
+    ni.style.display = 'flex';
     document.getElementById('nav-user-email').textContent = user.email;
 
-    // Course nav
-    document.getElementById('course-nav-login').classList.add('hidden');
+    // Course nav — swap to signed-in state
+    document.getElementById('course-nav-login-area').style.display = 'none';
     const cn = document.getElementById('course-nav-user');
-    cn.classList.remove('hidden'); cn.classList.add('flex');
+    cn.style.display = 'flex';
     document.getElementById('course-nav-email').textContent = user.email;
 
     renderLectures();
@@ -734,12 +833,13 @@ async function setUser(user) {
 
 function clearUser() {
     currentUser = null; hasPurchased = false;
-    document.getElementById('nav-get-started').classList.remove('hidden');
-    const ni = document.getElementById('nav-user-info');
-    ni.classList.add('hidden'); ni.classList.remove('flex');
-    document.getElementById('course-nav-login').classList.remove('hidden');
-    const cn = document.getElementById('course-nav-user');
-    cn.classList.add('hidden'); cn.classList.remove('flex');
+
+    document.getElementById('nav-get-started').style.display = '';
+    document.getElementById('nav-user-info').style.display = 'none';
+
+    document.getElementById('course-nav-login-area').style.display = 'flex';
+    document.getElementById('course-nav-user').style.display = 'none';
+
     renderLectures(); updateCourseUI();
 }
 
@@ -835,7 +935,6 @@ function openPurchase() {
 
 function openBundle() {
     if (!currentUser) { openLogin(); return; }
-    // Show correct modal state based on whether user already has course
     document.getElementById('bundle-full').classList.toggle('hidden', hasPurchased);
     document.getElementById('bundle-topup').classList.toggle('hidden', !hasPurchased);
     document.getElementById('bundleModal').classList.remove('hidden');
@@ -843,16 +942,13 @@ function openBundle() {
 
 async function handlePayment(type) {
     if (!currentUser) { openLogin(); return; }
-
     const configs = {
-        course:  { amount: 29900,  description: 'Course Access — ₹299',       product: 'course_299',         label: '₹299' },
-        bundle:  { amount: 79900,  description: 'Full Bundle — ₹799',          product: 'bundle_799',         label: '₹799' },
-        topup:   { amount: 50000,  description: '1-on-1 Live Call — ₹500',     product: 'oneonone_500_topup', label: '₹500' },
+        course:  { amount: 29900, description: 'Course Access — ₹299',   product: 'course_299',         label: '₹299' },
+        bundle:  { amount: 79900, description: 'Full Bundle — ₹799',      product: 'bundle_799',         label: '₹799' },
+        topup:   { amount: 50000, description: '1-on-1 Live Call — ₹500', product: 'oneonone_500_topup', label: '₹500' },
     };
     const cfg = configs[type];
-
     closeModal(type === 'course' ? 'purchaseModal' : 'bundleModal');
-
     const options = {
         key: RAZORPAY_KEY,
         amount: cfg.amount,
@@ -869,7 +965,6 @@ async function handlePayment(type) {
                     ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString()
                     : null
             });
-
             if (type === 'course' || type === 'bundle') {
                 hasPurchased = true;
                 renderLectures();
@@ -893,6 +988,7 @@ function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     window.scrollTo(0, 0);
+    lucide.createIcons();
 }
 
 function openLogin() {
