@@ -30,7 +30,7 @@
         /* HERO */
         #hero-bg {
             background-image:
-                linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 60%, #000 100%),
+                linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, #000 100%),
                 url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000');
             background-size: cover;
             background-position: center;
@@ -47,13 +47,14 @@
             padding: 20px 48px;
         }
         .logo-wrap {
-            background: rgba(0,0,0,0.55);
+            background: rgba(255,255,255,0.92);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 6px 14px 6px 10px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.6);
             display: flex;
             align-items: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.18);
         }
         @media (max-width: 640px) {
             .site-nav { padding: 16px 20px; }
@@ -230,23 +231,21 @@
         .site-footer {
             border-top: 1px solid #111;
             background: #000;
-            padding: 32px 48px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+            padding: 20px 48px;
+            text-align: center;
         }
         @media (max-width: 640px) {
-            .site-footer { padding: 28px 20px; flex-direction: column; align-items: center; text-align: center; }
+            .site-footer { padding: 20px; }
         }
 
-        /* SESSION 0 */
-        .session0-wrap {
-            background: linear-gradient(135deg, #050d1f 0%, #000 100%);
-            border: 1px solid rgba(37,99,235,0.2);
-            border-radius: 24px;
-            overflow: hidden;
+        /* LOGO WRAP DARK (course nav) */
+        .logo-wrap-dark {
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 4px 10px 4px 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
         }
 
         /* USER EMAIL BADGE */
@@ -435,15 +434,7 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="flex items-center gap-3">
-            <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png"
-                 style="height:32px; object-fit:contain; opacity:0.5;" alt="InternFoxx">
-            <span class="text-zinc-700 text-xs font-bold tracking-widest uppercase">© 2026 InternFoxx</span>
-        </div>
-        <p class="text-zinc-700 text-xs font-bold tracking-[0.25em] uppercase">
-            Hundreds of emails. One dream internship. 🦊
-        </p>
-        <a href="mailto:iampranjal569@gmail.com" class="text-zinc-600 hover:text-zinc-400 text-xs font-bold transition">iampranjal569@gmail.com</a>
+        <p class="text-zinc-500 text-[11px] font-black tracking-[0.4em] uppercase">© 2026 InternFoxx &nbsp;|&nbsp; Unlock Opportunities</p>
     </footer>
 
 </div>
@@ -459,11 +450,11 @@
             <button onclick="showPage('landing-page')" class="text-zinc-500 hover:text-white transition">
                 <i data-lucide="arrow-left" class="w-5 h-5"></i>
             </button>
-            <div class="logo-wrap" style="padding:4px 12px 4px 8px;">
+            <div class="logo-wrap-dark">
                 <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png"
                      style="height:36px; object-fit:contain; display:block;" alt="InternFoxx">
             </div>
-            <span class="text-zinc-600 text-xs font-bold italic hidden md:block">Art of Getting Internships</span>
+            <span class="text-blue-500 text-sm font-bold italic hidden md:block">Art of Getting Internships</span>
         </div>
         <div class="flex items-center gap-3">
             <div id="course-nav-user" class="hidden items-center gap-3">
@@ -504,24 +495,19 @@
                 <span class="bg-green-600/20 border border-green-600/40 text-green-400 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Free Preview</span>
                 <h3 class="text-lg font-black uppercase">Session 0 — Watch Before You Buy</h3>
             </div>
-            <div class="session0-wrap">
-                <div class="p-5 border-b border-zinc-800/60 flex items-center justify-between">
-                    <div>
-                        <p class="font-bold text-sm">Session 0: Why Cold Outreach Changes Everything</p>
-                        <p class="text-zinc-500 text-xs mt-0.5">Free · No login needed · Share this with a friend 🦊</p>
+            <!-- Compact card — same shape/size as locked session cards, click to open modal -->
+            <div onclick="playSession0()"
+                 class="course-card bg-zinc-900/50 p-5 rounded-2xl flex items-center justify-between cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-green-600/10 border border-green-600/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="play-circle" class="w-5 h-5 text-green-500"></i>
                     </div>
-                    <i data-lucide="play-circle" class="text-green-500 w-6 h-6 flex-shrink-0"></i>
+                    <div>
+                        <p class="text-sm font-bold">Session 0: Why Cold Outreach Changes Everything</p>
+                        <p class="text-xs text-zinc-500">Free · No login needed · Share with a friend 🦊</p>
+                    </div>
                 </div>
-                <div class="aspect-video w-full bg-zinc-950">
-                    <iframe
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&controls=0&disablekb=1"
-                        width="100%" height="100%"
-                        frameborder="0"
-                        allowfullscreen
-                        allow="autoplay; encrypted-media"
-                        style="display:block; width:100%; height:100%;"
-                    ></iframe>
-                </div>
+                <span class="text-[10px] flex-shrink-0 bg-green-600/20 text-green-400 px-2 py-1 rounded font-bold">FREE</span>
             </div>
         </div>
 
@@ -577,15 +563,7 @@
 
     <!-- COURSE PAGE FOOTER -->
     <footer class="site-footer">
-        <div class="flex items-center gap-3">
-            <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png"
-                 style="height:32px; object-fit:contain; opacity:0.5;" alt="InternFoxx">
-            <span class="text-zinc-700 text-xs font-bold tracking-widest uppercase">© 2026 InternFoxx</span>
-        </div>
-        <p class="text-zinc-700 text-xs font-bold tracking-[0.25em] uppercase">
-            Hundreds of emails. One dream internship. 🦊
-        </p>
-        <a href="mailto:iampranjal569@gmail.com" class="text-zinc-600 hover:text-zinc-400 text-xs font-bold transition">iampranjal569@gmail.com</a>
+        <p class="text-zinc-500 text-[11px] font-black tracking-[0.4em] uppercase">© 2026 InternFoxx &nbsp;|&nbsp; Unlock Opportunities</p>
     </footer>
 
 </div>
@@ -781,6 +759,12 @@ function updateCourseUI() {
     document.getElementById('resources-locked').classList.toggle('hidden', paid);
     document.getElementById('resources-unlocked').classList.toggle('hidden', !paid);
     lucide.createIcons();
+}
+
+function playSession0() {
+    document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&controls=0&disablekb=1&autoplay=1';
+    document.getElementById('video-title').textContent = 'Session 0: Why Cold Outreach Changes Everything';
+    document.getElementById('videoModal').classList.add('open');
 }
 
 function playLecture(i) {
