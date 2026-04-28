@@ -55,33 +55,16 @@
 
 <div id="landing-page" class="page active">
     <section id="hero-bg" class="min-h-screen flex flex-col">
-        <nav class="flex items-center justify-between px-6 md:px-12 py-6 relative z-10">
-
-    <div class="flex-1"></div>
-
-    <!-- CENTER LOGO -->
-    <div class="flex justify-center flex-1">
-        <div class="bg-black/60 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
-            <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png"
-                 class="h-12 object-contain">
-        </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="flex items-center gap-4 flex-1 justify-end">
-        <div id="nav-user-info" class="hidden items-center gap-3">
-            <span id="nav-user-email" class="text-sm text-zinc-200 font-medium"></span>
-            <button onclick="handleSignOut()" class="border border-zinc-600 px-4 py-2 rounded-full text-sm">Sign Out</button>
-        </div>
-
-        <button id="nav-get-started"
-            onclick="openLogin()"
-            class="bg-blue-600 hover:bg-blue-700 px-6 py-2.5 rounded-full text-sm font-bold">
-            Get Started
-        </button>
-    </div>
-
-</nav>
+        <nav class="flex items-center justify-between px-6 md:px-12 py-8 relative z-10 border-t border-white/10">
+            <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png"style="height:70px; object-fit:contain; width:200px;margin-left:-45px; margin-top:-20px;;">
+            <div class="flex items-center gap-3">
+                <div id="nav-user-info" class="hidden items-center gap-3">
+                    <span id="nav-user-email" class="text-xs text-zinc-400 hidden md:block"></span>
+                    <button onclick="handleSignOut()" class="border border-zinc-700 hover:border-zinc-500 px-5 py-2.5 rounded-full text-sm font-bold transition text-zinc-300 hover:text-white">Sign Out</button>
+                </div>
+                <button id="nav-get-started" onclick="openLogin()" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-sm font-bold transition shadow-lg shadow-blue-600/20">Get Started</button>
+            </div>
+        </nav>
         <div class="flex-1 flex flex-col justify-center px-6 md:px-12 relative z-10 pb-20">
             <p class="text-blue-500 font-bold tracking-[0.3em] text-xs mb-4 uppercase">InternFoxx: The Fast Track</p>
             <h1 class="large-title uppercase mb-8">LAND INTERNSHIP <br> IN 30 DAYS.</h1>
@@ -122,67 +105,27 @@
         </div>
     </section>
 
-                <div class="p-8 flex flex-col flex-1 justify-between">
-    <div>
-        <div class="flex justify-between items-center mb-3">
-            <h3 class="text-2xl font-black">COURSE</h3>
-            <span class="text-2xl font-black text-blue-500">₹299</span>
-        </div>
-
-        <p class="text-zinc-400 text-sm mb-6">
-            Learn cold outreach from zero. LinkedIn mining, email systems, CV — the full playbook.
-        </p>
-
-        <div class="flex flex-wrap gap-2 mb-8">
-            <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">LinkedIn Mining</span>
-            <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">200+ Emails</span>
-            <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">CV Template</span>
-            <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">7-Day Plan</span>
-        </div>
-    </div>
-
-    <button onclick="showPage('course-page')"
-        class="w-full border border-zinc-700 py-4 rounded-xl font-bold">
-        VIEW COURSE
-    </button>
-</div>
-
-
-        <!-- BUNDLE -->
-        <div class="w-full md:w-[400px] rounded-[32px] overflow-hidden border border-zinc-800 bg-black flex flex-col justify-between">
-
-            <div class="h-32 bg-gradient-to-br from-purple-900 to-black flex items-center px-6">
-                <span class="text-purple-400 text-xs font-bold">COURSE + LIVE CALL</span>
-            </div>
-
-            <div class="p-8 flex flex-col flex-1 justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="text-2xl font-black">FULL BUNDLE</h3>
-                        <span class="text-2xl font-black text-purple-400">₹799</span>
-                    </div>
-
-                    <p class="text-zinc-400 text-sm mb-6">
-                        Everything in the course + 1-on-1 call. CV review, outreach help, your exact situation.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">All 6 Sessions</span>
-                        <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">40-min Call</span>
-                        <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">CV Review</span>
-                        <span class="text-xs bg-zinc-800 px-3 py-1 rounded-full">Resources Pack</span>
-                    </div>
+    <section class="py-24 px-6 md:px-12 bg-zinc-950">
+        <h2 class="text-center text-4xl font-black uppercase mb-4 italic tracking-tighter">What We <span class="text-blue-600">Offer</span></h2>
+        <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto mt-16">
+            <div class="glass p-8 rounded-[40px] w-full md:w-[400px]">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-black uppercase">Course Access</h3>
+                    <span class="text-2xl font-black text-blue-500">₹299</span>
                 </div>
-
-                <<button onclick="handlePayment('oneonone')"
-                    class="w-full border border-zinc-700 py-4 rounded-xl font-bold">
-                    BOOK BUNDLE
-                </button>
+                <p class="text-zinc-400 text-sm mb-8 leading-relaxed">6 sessions. Full cold outreach system. Land your first internship in 30 days — even with zero experience or connections.</p>
+                <button onclick="showPage('course-page')" class="w-full bg-blue-600 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition">View Course</button>
+            </div>
+            <div class="glass p-8 rounded-[40px] w-full md:w-[400px]">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-black uppercase">1-on-1 Session</h3>
+                    <span class="text-2xl font-black text-blue-500">₹599</span>
+                </div>
+                <p class="text-zinc-400 text-sm mb-8 leading-relaxed">40-minute live call with the instructor. CV review, outreach troubleshooting, personalised advice for your exact situation.</p>
+                <button onclick="openOneOnOne()" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-zinc-200 transition">Book a Session</button>
             </div>
         </div>
-
-    </div>
-</section>
+    </section>
 
     <section class="py-24 px-6 md:px-12 bg-black">
         <h2 class="text-center text-4xl font-black uppercase mb-4 italic tracking-tighter">The <span class="text-blue-600">Founders</span></h2>
@@ -208,9 +151,7 @@
     </section>
 
     <footer class="py-12 px-6 border-t border-zinc-900 text-center bg-black">
-        <p class="text-xs text-zinc-500 font-medium">
-    © 2026 InternFoxx <br> Built for people who take action.
-</p>
+        <p class="text-[10px] text-zinc-800 tracking-[0.5em] font-black uppercase">© 2026 InternFoxx | UNLOCK OPPORTUNITIES</p>
     </footer>
 </div>
 
@@ -232,19 +173,6 @@
     <div class="max-w-6xl mx-auto px-6 py-12">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
             <div>
-                <div class="mb-16">
-    <h3 class="text-2xl font-black mb-4">Session 0 — Start Here</h3>
-    <p class="text-zinc-500 text-sm mb-6">Watch this before anything else.</p>
-
-    <div class="aspect-video w-full rounded-2xl overflow-hidden border border-zinc-800">
-        <iframe 
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
-            class="w-full h-full"
-            frameborder="0"
-            allowfullscreen>
-        </iframe>
-    </div>
-</div>
                 <h2 class="text-4xl font-black uppercase mb-2">The Curriculum</h2>
                 <p class="text-zinc-500">6 Video Sessions • Resources Included</p>
             </div>
@@ -498,63 +426,45 @@ function openPurchase() {
     if (!currentUser) { openLogin(); return; }
     document.getElementById('purchaseModal').classList.remove('hidden');
 }
-
+function openOneOnOne() {
+    if (!currentUser) { openLogin(); return; }
+    document.getElementById('oneOnOneModal').classList.remove('hidden');
+}
 async function handlePayment(type) {
     if (!currentUser) { openLogin(); return; }
-
-    let amount = 0;
-    let description = '';
-
-    if (type === 'course') {
-        amount = 29900;
-        description = 'Course Access — ₹299';
-    }
-
-    if (type === 'bundle') {
-        amount = 79900;
-        description = 'Full Bundle — ₹799';
-    }
-
-    if (type === 'oneonone') {
-        if (hasPurchased) {
-            amount = 50000;
-            description = '1-on-1 Upgrade — ₹500';
-        } else {
-            amount = 79900;
-            description = 'Full Bundle — ₹799';
-        }
-    }
-
+    const isCourse = type === 'course';
+    closeModal(isCourse ? 'purchaseModal' : 'oneOnOneModal');
     const options = {
         key: RAZORPAY_KEY,
-        amount,
+        amount: isCourse ? 29900 : 59900,
         currency: 'INR',
         name: 'InternFoxx',
-        description,
+        description: isCourse ? 'Course Access — ₹299' : '1-on-1 Session — ₹599',
         handler: async function(response) {
-
             await sb.from('purchases').insert({
                 user_id: currentUser.id,
-                product: description,
-                amount: amount / 100,
-                status: 'paid'
+                product: isCourse ? 'course_299' : 'oneonone_599',
+                amount: isCourse ? 299 : 599,
+                status: 'paid',
+                access_expires_at: isCourse
+                    ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString()
+                    : null
             });
-
-            if (type === 'course' || type === 'bundle') {
+            if (isCourse) {
                 hasPurchased = true;
                 renderLectures();
                 updateCourseUI();
-                showToast('🎉 Access unlocked!', 'success');
+                showToast('🎉 Course unlocked! Start watching.', 'success');
                 showPage('course-page');
             } else {
                 window.open('https://calendly.com/pranjalgunsatiya/30min', '_blank');
-                showToast('✅ Book your session!', 'success');
+                showToast('✅ Booked! Opening calendar...', 'success');
             }
         },
         prefill: { email: currentUser.email },
-        theme: { color: '#2563eb' }
+        theme: { color: '#2563eb' },
+        modal: { ondismiss: () => showToast('Payment cancelled.', 'error') }
     };
-
     new Razorpay(options).open();
 }
 function showPage(id) {
