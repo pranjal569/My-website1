@@ -27,10 +27,10 @@
         .page { display: none; min-height: 100vh; }
         .page.active { display: block; }
 
-        /* ===================== NAVBAR — PREPIUM STYLE ===================== */
+        /* ===================== NAVBAR ===================== */
         .site-nav {
             width: 100%;
-            padding: 10px 24px;
+            padding: 16px 32px;
             background: transparent;
             display: flex;
             align-items: center;
@@ -38,10 +38,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            /* subtle blur behind the pill */
         }
 
-        /* The floating pill */
         .nav-pill {
             display: flex;
             align-items: center;
@@ -49,26 +47,31 @@
             border-radius: 60px;
             padding: 6px 6px 6px 6px;
             width: 100%;
-            max-width: 860px;
+            max-width: 1080px;
             gap: 0;
         }
 
-        /* Logo pill inside */
+        /* Logo pill — NO black background, transparent */
         .nav-logo-pill {
-            background: #111;
+            background: transparent;
             border-radius: 50px;
-            padding: 7px 16px 7px 10px;
+            padding: 7px 16px 7px 8px;
             display: flex;
             align-items: center;
             gap: 8px;
             flex-shrink: 0;
             text-decoration: none;
         }
+
+        /* Fox image — mix-blend-mode removes white/light background */
         .nav-logo-pill img {
-            height: 30px;
+            height: 32px;
             object-fit: contain;
             display: block;
+            mix-blend-mode: multiply;
+            filter: contrast(1.15) saturate(1.1);
         }
+
         .nav-logo-text {
             font-family: 'DM Sans', sans-serif;
             font-size: 14px;
@@ -77,10 +80,11 @@
             line-height: 1;
             white-space: nowrap;
         }
-        .nav-logo-text .intern { color: #fff; }
-        .nav-logo-text .foxx  { color: #f97316; }
+        /* INTERN = black, FOXX = blue, .IN = black */
+        .nav-logo-text .intern { color: #111; }
+        .nav-logo-text .foxx  { color: #2563eb; }
+        .nav-logo-text .dotin { color: #111; }
 
-        /* Nav links */
         .nav-links {
             display: flex;
             align-items: center;
@@ -104,7 +108,6 @@
         }
         .nav-link:hover { background: rgba(0,0,0,0.08); }
 
-        /* Divider */
         .nav-divider {
             width: 1px;
             height: 20px;
@@ -113,7 +116,6 @@
             margin: 0 6px;
         }
 
-        /* Back button (course page) */
         .nav-back-btn {
             width: 36px;
             height: 36px;
@@ -133,7 +135,6 @@
             color: #000;
         }
 
-        /* LOGIN — solid black pill, pops on cream */
         .nav-login-btn {
             background: #111;
             color: #fff;
@@ -151,11 +152,10 @@
             flex-shrink: 0;
         }
         .nav-login-btn:hover {
-            background: #f97316;
+            background: #2563eb;
             color: #fff;
         }
 
-        /* GET STARTED — same black pill on landing */
         .nav-getstarted-btn {
             background: #111;
             color: #fff;
@@ -172,9 +172,8 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-        .nav-getstarted-btn:hover { background: #f97316; }
+        .nav-getstarted-btn:hover { background: #2563eb; }
 
-        /* Sign out — ghost on cream bg */
         .nav-signout-btn {
             background: transparent;
             border: 1.5px solid rgba(0,0,0,0.2);
@@ -193,7 +192,6 @@
             color: #111;
         }
 
-        /* User email badge — adapted for cream bg */
         .nav-email-badge {
             background: rgba(0,0,0,0.07);
             border: 1px solid rgba(0,0,0,0.12);
@@ -208,7 +206,6 @@
             white-space: nowrap;
         }
 
-        /* Nav tagline on course page */
         .nav-tagline {
             font-size: 12px;
             font-style: italic;
@@ -219,7 +216,7 @@
         }
 
         @media (max-width: 640px) {
-            .site-nav { padding: 8px 12px; }
+            .site-nav { padding: 10px 12px; }
             .nav-tagline, .nav-divider { display: none; }
             .nav-links { display: none; }
             .nav-pill { justify-content: space-between; }
@@ -422,7 +419,6 @@
             .site-footer { padding: 20px; }
         }
 
-        /* USER EMAIL BADGE */
         .user-email-badge {
             background: rgba(37,99,235,0.15);
             border: 1px solid rgba(37,99,235,0.3);
@@ -448,15 +444,15 @@
     <!-- LANDING NAV -->
     <nav class="site-nav">
         <div class="nav-pill">
-            <!-- Logo pill -->
+            <!-- Logo — transparent pill, fox img with blend mode, INTERNFOXX.IN -->
             <a class="nav-logo-pill" href="#">
-                <img src="Gemini_Generated_Image_554yg8554yg8554y.png" alt="InternFoxx">
+                <img src="Gemini_Generated_Image_554yg8554yg8554y.png" alt="InternFoxx Fox">
                 <div class="nav-logo-text">
-                    <span class="intern">INTERN</span><span class="foxx">FOXX</span>
+                    <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
                 </div>
             </a>
 
-            <!-- Nav links (hidden on mobile) -->
+            <!-- Nav links -->
             <div class="nav-links">
                 <a class="nav-link" onclick="showPage('course-page')">Course</a>
                 <a class="nav-link" href="#">Resources</a>
@@ -466,10 +462,10 @@
 
             <div class="nav-divider"></div>
 
-            <!-- Right side: logged out -->
+            <!-- Right: logged out -->
             <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
 
-            <!-- Right side: logged in -->
+            <!-- Right: logged in -->
             <div id="nav-user-info" class="items-center gap-2" style="display:none;">
                 <span id="nav-user-email" class="nav-email-badge"></span>
                 <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
@@ -620,9 +616,9 @@
                     <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
                 </button>
                 <a class="nav-logo-pill" href="#">
-                    <img src="https://raw.githubusercontent.com/pranjal569/My-website1/main/logo-removebg-preview.png" alt="InternFoxx">
+                    <img src="Gemini_Generated_Image_554yg8554yg8554y.png" alt="InternFoxx Fox">
                     <div class="nav-logo-text">
-                        <span class="intern">INTERN</span><span class="foxx">FOXX</span>
+                        <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
                     </div>
                 </a>
             </div>
