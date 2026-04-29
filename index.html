@@ -528,52 +528,78 @@
     </section>
 
     <!-- WHAT WE OFFER -->
-    <section class="py-24 px-6 md:px-12 bg-zinc-950">
-        <h2 class="text-center text-5xl uppercase mb-3 italic tracking-wide">What We <span class="text-blue-600">Offer</span></h2>
-        <p class="text-center text-zinc-500 text-sm mb-16 max-w-md mx-auto">Two ways in. Pick what fits where you are right now.</p>
-        <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
-            <div class="offer-card">
-                <div class="offer-card-visual blue-card">
-                    <div class="dot-grid"></div>
-                    <span class="offer-card-badge">6 Video Sessions</span>
-                </div>
-                <div class="offer-card-body">
-                    <div class="flex justify-between items-baseline mb-3">
-                        <h3 class="text-3xl uppercase">Course</h3>
-                        <span class="text-3xl text-blue-500" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">₹299</span>
-                    </div>
-                    <p class="text-zinc-400 text-sm mb-5 leading-relaxed">No job portals. No connections. Just a system — find companies, get their contact, send emails that get replies. That's the whole thing.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="offer-chip">LinkedIn Mining</span>
-                        <span class="offer-chip">200+ Emails</span>
-                        <span class="offer-chip">CV Template</span>
-                        <span class="offer-chip">7-Day Plan</span>
-                    </div>
-                    <button onclick="showPage('course-page')" class="w-full bg-white text-black py-3.5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-zinc-200 transition">View Course</button>
-                </div>
+   <!-- WHAT WE OFFER — Blueprint Grid Cards -->
+<section class="py-24 px-6 md:px-12 bg-zinc-950">
+    <h2 class="text-center text-5xl uppercase mb-3 italic tracking-wide">What We <span class="text-blue-600">Offer</span></h2>
+    <p class="text-center text-zinc-500 text-sm mb-16 max-w-md mx-auto">Two ways in. Pick what fits where you are right now.</p>
+    <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+
+        <!-- Card 1: Course -->
+        <div style="
+            background:#0a0a12;
+            border:1px solid rgba(55,138,221,0.25);
+            border-radius:20px;
+            padding:28px 24px 24px;
+            width:100%; max-width:400px;
+            position:relative; overflow:hidden;
+            transition: border-color 0.3s, transform 0.3s;
+            background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
+            background-size: 28px 28px;
+        " onmouseover="this.style.borderColor='rgba(55,138,221,0.6)';this.style.transform='translateY(-3px)'"
+           onmouseout="this.style.borderColor='rgba(55,138,221,0.25)';this.style.transform='translateY(0)'">
+            <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;position:relative;">6 video sessions</p>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;position:relative;">
+                <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Course</h3>
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#378ADD;letter-spacing:0.02em;">₹299</span>
             </div>
-            <div class="offer-card" style="border-color:#2a1a4a;">
-                <div class="offer-card-visual purple-card">
-                    <div class="dot-grid"></div>
-                    <span class="offer-card-badge purple">Course + Live Call</span>
-                </div>
-                <div class="offer-card-body">
-                    <div class="flex justify-between items-baseline mb-3">
-                        <h3 class="text-3xl uppercase">Full Bundle</h3>
-                        <span class="text-3xl text-purple-400" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">₹799</span>
-                    </div>
-                    <p class="text-zinc-400 text-sm mb-5 leading-relaxed">The full course plus a 40-min call with Pranjal. We'll look at your CV, your targets, and build your exact plan together.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="offer-chip">All 6 Sessions</span>
-                        <span class="offer-chip">40-Min Call</span>
-                        <span class="offer-chip">CV Review</span>
-                        <span class="offer-chip">Resources Pack</span>
-                    </div>
-                    <button onclick="openBundle()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3.5 rounded-2xl font-black uppercase tracking-widest text-xs transition">Book Bundle</button>
-                </div>
+            <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;position:relative;">No job portals. No connections. Just a system — find companies, get their contact, send emails that get replies. That's the whole thing.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;position:relative;">
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">LinkedIn Mining</span>
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">200+ Emails</span>
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">CV Template</span>
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">7-Day Plan</span>
             </div>
+            <button onclick="showPage('course-page')" style="width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:transparent;color:#378ADD;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
+                onmouseover="this.style.background='#378ADD';this.style.color='#fff'"
+                onmouseout="this.style.background='transparent';this.style.color='#378ADD'">
+                View Course
+            </button>
         </div>
-    </section>
+
+        <!-- Card 2: Full Bundle -->
+        <div style="
+            background:#0a0a12;
+            border:1px solid rgba(55,138,221,0.55);
+            border-radius:20px;
+            padding:28px 24px 24px;
+            width:100%; max-width:400px;
+            position:relative; overflow:hidden;
+            transition: border-color 0.3s, transform 0.3s;
+            background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
+            background-size: 28px 28px;
+        " onmouseover="this.style.borderColor='rgba(55,138,221,0.9)';this.style.transform='translateY(-3px)'"
+           onmouseout="this.style.borderColor='rgba(55,138,221,0.55)';this.style.transform='translateY(0)'">
+            <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;position:relative;">Course + Live Call</p>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;position:relative;">
+                <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Full Bundle</h3>
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#378ADD;letter-spacing:0.02em;">₹799</span>
+            </div>
+            <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;position:relative;">The full course plus a 40-min call with Pranjal. We'll look at your CV, your targets, and build your exact plan together.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;position:relative;">
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">All 6 Sessions</span>
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">40-Min Call</span>
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">CV Review</span>
+                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">Resources Pack</span>
+            </div>
+            <button onclick="openBundle()" style="width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:#378ADD;color:#fff;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
+                onmouseover="this.style.background='#185FA5';this.style.borderColor='#185FA5'"
+                onmouseout="this.style.background='#378ADD';this.style.borderColor='#378ADD'">
+                Book Bundle
+            </button>
+        </div>
+
+    </div>
+</section>
 
     <!-- FOUNDERS -->
     <section class="py-24 px-6 md:px-12 bg-black">
