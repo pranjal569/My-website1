@@ -94,11 +94,16 @@
         .nav-links {
     display: flex;
     align-items: center;
-    justify-content: flex-start;  /* ✅ move links closer to logo */
-    gap: 12px;                    /* ✅ better spacing between buttons */
-    margin-left: 305px;            /* ✅ pushes links slightly right from logo */
-
+    justify-content: flex-start;
+    gap: 12px;
+    margin-left: 305px;
         }
+
+        /* Course page nav links — shifted further right */
+        .nav-links-course {
+            margin-left: 572px;
+        }
+
         .nav-link {
             font-size: 11.5px;
             font-weight: 700;
@@ -449,9 +454,6 @@
 <!-- ===================== LANDING PAGE ===================== -->
 <div id="landing-page" class="page active">
 
-    <!-- LANDING NAV -->
-    
-
     <!-- HERO -->
 <section id="hero-bg" class="flex flex-col min-h-screen">
     <nav class="site-nav">
@@ -539,7 +541,7 @@
                         <h3 class="text-3xl uppercase">Course</h3>
                         <span class="text-3xl text-blue-500" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">₹299</span>
                     </div>
-                    <p class="text-zinc-400 text-sm mb-5 leading-relaxed">Learn cold outreach from zero. LinkedIn mining, email systems, CV — the full playbook to land internships without connections or job portals.</p>
+                    <p class="text-zinc-400 text-sm mb-5 leading-relaxed">No job portals. No connections. Just a system — find companies, get their contact, send emails that get replies. That's the whole thing.</p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="offer-chip">LinkedIn Mining</span>
                         <span class="offer-chip">200+ Emails</span>
@@ -559,7 +561,7 @@
                         <h3 class="text-3xl uppercase">Full Bundle</h3>
                         <span class="text-3xl text-purple-400" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">₹799</span>
                     </div>
-                    <p class="text-zinc-400 text-sm mb-5 leading-relaxed">Everything in the course, plus a 40-min live call with Pranjal — CV review, outreach help, personalised advice for your exact situation.</p>
+                    <p class="text-zinc-400 text-sm mb-5 leading-relaxed">The full course plus a 40-min call with Pranjal. We'll look at your CV, your targets, and build your exact plan together.</p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="offer-chip">All 6 Sessions</span>
                         <span class="offer-chip">40-Min Call</span>
@@ -587,7 +589,7 @@
                         </a>
                     </div>
                     <p class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-3">Co-Founder & Instructor</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Started from zero — no connections, no clue how internships worked. Figured out cold outreach when job portals gave him nothing. Packaged everything that worked into this course so you skip months of figuring it out.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Spent months applying on portals. Zero results. Switched to cold outreach and everything changed. Built this course around what actually worked — so you figure it out in days, not months.</p>
                 </div>
             </div>
             <div class="founder-card p-8 w-full md:w-[380px] flex gap-6 items-start">
@@ -600,7 +602,7 @@
                         </a>
                     </div>
                     <p class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-3">Co-Founder & Operations</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">The engine behind InternFoxx. Handles everything from product to operations — making sure every student gets a smooth, valuable experience from the moment they sign up to landing their offer.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Runs everything behind the scenes. Makes sure that once you're in, the experience is smooth — from purchase to your first reply.</p>
                 </div>
             </div>
         </div>
@@ -625,15 +627,15 @@
                     <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
                 </button>
                 <a class="nav-logo-pill" href="#">
-                    <img src="Gemini_Generated_Image_554yg8554yg8554y.png" alt="InternFoxx Fox">
+                    <img src="Gemini_Generated_Image_554yg8554yg8554y (1) (1).png" alt="InternFoxx Fox">
                     <div class="nav-logo-text">
                         <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
                     </div>
                 </a>
             </div>
 
-            <!-- Nav links -->
-            <div class="nav-links">
+            <!-- Nav links — course page uses extra margin-left -->
+            <div class="nav-links nav-links-course">
                 <span class="nav-tagline">Art of Getting Internships</span>
             </div>
 
@@ -684,7 +686,7 @@
                         <i data-lucide="play-circle" class="w-5 h-5 text-green-500"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-bold">Session 0: Why Cold Outreach Changes Everything</p>
+                        <p class="text-sm font-bold">Session 0: Watch This First</p>
                         <p class="text-xs text-zinc-500">Free · No login needed</p>
                     </div>
                 </div>
@@ -844,12 +846,12 @@ const SESSION1_GUMLET = 'https://play.gumlet.io/embed/69f102b2a3dc19951f210c86';
 const PLACEHOLDER_GUMLET = 'https://play.gumlet.io/embed/69f102b2a3dc19951f210c86';
 
 const lectures = [
-    { title: 'Session 1: What is an Internship & The Big Picture', duration: '~16 min', video_url: SESSION1_GUMLET },
-    { title: 'Session 2: Building Your Foundation — LinkedIn & CV', duration: '~10 min', video_url: 'https://play.gumlet.io/embed/69f12b1b4d5bf5db18e2b1fc?background=false&autoplay=false&loop=false&disable_player_controls=false' },
-    { title: 'Session 3: The LinkedIn Mining System', duration: '~8 min', video_url: 'https://play.gumlet.io/embed/69f1333da3dc19951f252e1d?background=false&autoplay=false&loop=false&disable_player_controls=false' },
-    { title: 'Session 4: Finding Emails & Sending 200+ Mails', duration: '~65 min', video_url: PLACEHOLDER_GUMLET },
-    { title: 'Session 5: Writing Emails That Get Replies', duration: '~55 min', video_url: PLACEHOLDER_GUMLET },
-    { title: 'Session 6: Full System Run + 7-Day Action Plan', duration: '~60 min', video_url: PLACEHOLDER_GUMLET },
+    { title: 'Session 1: What Internships Actually Are', duration: '~16 min', video_url: SESSION1_GUMLET },
+    { title: 'Session 2: Types of Companies & Where to Target', duration: '~10 min', video_url: 'https://play.gumlet.io/embed/69f12b1b4d5bf5db18e2b1fc?background=false&autoplay=false&loop=false&disable_player_controls=false' },
+    { title: 'Session 3: CV & LinkedIn — Get the Basics Right', duration: '~8 min', video_url: 'https://play.gumlet.io/embed/69f1333da3dc19951f252e1d?background=false&autoplay=false&loop=false&disable_player_controls=false' },
+    { title: 'Session 4: Finding the Right Person on LinkedIn', duration: '~65 min', video_url: PLACEHOLDER_GUMLET },
+    { title: 'Session 5: Mails, Messages & Standing Out', duration: '~55 min', video_url: PLACEHOLDER_GUMLET },
+    { title: 'Session 6: Interviews — What to Expect & How to Prep', duration: '~60 min', video_url: PLACEHOLDER_GUMLET },
 ];
 
 let currentUser = null;
@@ -931,7 +933,7 @@ function updateCourseUI() {
 
 function playSession0() {
     document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&controls=0&disablekb=1&autoplay=1';
-    document.getElementById('video-title').textContent = 'Session 0: Why Cold Outreach Changes Everything';
+    document.getElementById('video-title').textContent = 'Session 0: Watch This First';
     document.getElementById('videoModal').classList.add('open');
 }
 
