@@ -433,7 +433,7 @@
                 </button>
             </div>
 
-            <!-- Card 2: LIVE CALL -->
+            <!-- Card 2: Full Bundle -->
             <div id="bundle-section" style="
                 background:#0a0a12;
                 border:1px solid rgba(55,138,221,0.55);
@@ -449,12 +449,12 @@
                onmouseout="this.style.borderColor='rgba(55,138,221,0.55)';this.style.transform='translateY(0)'">
                 <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;">Course + Live Call</p>
                 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
-                    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">LIVE CALL</h3>
+                    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Full Bundle</h3>
                     <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#378ADD;letter-spacing:0.02em;">1-ON-1</span>
                 </div>
                 <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;">The full course plus a 40-min call with Pranjal. We'll look at your CV, your targets, and build your exact plan together.</p>
                 <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;">
-                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">Session Included</span>
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">All 6 Sessions</span>
                     <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">40-Min Call</span>
                     <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">CV Review</span>
                     <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">Resources Pack</span>
@@ -678,7 +678,7 @@
             <i data-lucide="lock" class="text-blue-500 w-8 h-8"></i>
         </div>
         <h3 class="text-3xl uppercase mb-2">Unlock Course</h3>
-        <p class="text-zinc-400 text-sm mb-2">Session Included + full resources pack.</p>
+        <p class="text-zinc-400 text-sm mb-2">All 6 sessions + full resources pack.</p>
         <p class="text-4xl text-blue-500 mb-8" style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.02em;">₹299</p>
         <button onclick="handlePayment('course')" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition">Pay ₹299 & Unlock</button>
     </div>
@@ -692,7 +692,7 @@
             <i data-lucide="video" class="text-purple-400 w-8 h-8"></i>
         </div>
         <div id="bundle-full">
-            <h3 class="text-3xl uppercase mb-2">LIVE CALL</h3>
+            <h3 class="text-3xl uppercase mb-2">Full Bundle</h3>
             <p class="text-zinc-400 text-sm mb-1">All 6 sessions + 40-min live call with Pranjal.</p>
             <p class="text-zinc-500 text-xs mb-4">CV review · outreach troubleshooting · personalised advice</p>
             <p class="text-4xl text-purple-400 mb-8" style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.02em;">₹799</p>
@@ -899,7 +899,7 @@ async function handlePayment(type) {
     if (!currentUser) { openLogin(); return; }
     const configs = {
         course: { amount: 29900, description: 'Course Access — ₹299', product: 'course_299' },
-        bundle: { amount: 79900, description: 'LIVE CALL — ₹799', product: 'bundle_799' },
+        bundle: { amount: 79900, description: 'Full Bundle — ₹799', product: 'bundle_799' },
         topup:  { amount: 50000, description: '1-on-1 Live Call — ₹500', product: 'oneonone_500_topup' },
     };
     const cfg = configs[type];
