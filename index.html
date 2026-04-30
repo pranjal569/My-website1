@@ -17,8 +17,8 @@
             --border: rgba(255,255,255,0.07);
         }
         #course-page .max-w-5xl {
-    padding-top: 100px !important;
-}
+            padding-top: 100px !important;
+        }
         * { box-sizing: border-box; }
         body {
             background-color: #000;
@@ -39,25 +39,25 @@
             align-items: center;
             justify-content: center;
             position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
             z-index: 100;
         }
 
         .nav-pill {
-             display: flex;
-    align-items: center;
-    background: #f5f0e8;
-    border-radius: 60px;
-    padding: 6px;
-    width: 100%;
-    max-width: 1080px;
-    gap: 0;
-    justify-content: space-between; 
+            display: flex;
+            align-items: center;
+            background: #f5f0e8;
+            border-radius: 60px;
+            padding: 6px;
+            width: 100%;
+            max-width: 1080px;
+            gap: 0;
+            justify-content: space-between;
+            overflow: hidden; /* FIXED: prevents nav from exploding */
         }
 
-        /* Logo pill — NO black background, transparent */
         .nav-logo-pill {
             background: transparent;
             border-radius: 50px;
@@ -69,7 +69,6 @@
             text-decoration: none;
         }
 
-        /* Fox image — mix-blend-mode removes white/light background */
         .nav-logo-pill img {
             height: 32px;
             object-fit: contain;
@@ -86,20 +85,18 @@
             line-height: 1;
             white-space: nowrap;
         }
-        /* INTERN = black, FOXX = blue, .IN = black */
         .nav-logo-text .intern { color: #111; }
         .nav-logo-text .foxx  { color: #2563eb; }
         .nav-logo-text .dotin { color: #111; }
 
         .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-    margin-left: 305px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            margin-left: 305px;
         }
 
-        /* Course page nav links — shifted further right */
         .nav-links-course {
             margin-left: 572px;
         }
@@ -124,8 +121,7 @@
             height: 20px;
             background: rgba(0,0,0,0.15);
             flex-shrink: 0;
-            margin: 0 6px;
-              margin: 0 10px;
+            margin: 0 10px;
         }
 
         .nav-back-btn {
@@ -198,24 +194,29 @@
             font-family: 'DM Sans', sans-serif;
             letter-spacing: 0.03em;
             transition: all 0.2s;
+            flex-shrink: 0; /* FIXED: sign out button never shrinks */
+            white-space: nowrap;
         }
         .nav-signout-btn:hover {
             border-color: rgba(0,0,0,0.4);
             color: #111;
         }
 
+        /* FIXED: Email badge — white bg, blue border, blue text */
         .nav-email-badge {
-            background: rgba(0,0,0,0.07);
-            border: 1px solid rgba(0,0,0,0.12);
+            background: #ffffff;
+            border: 1.5px solid #2563eb;
             border-radius: 99px;
             padding: 5px 14px;
             font-size: 11px;
             font-weight: 700;
-            color: #333;
-            max-width: 180px;
+            color: #2563eb;
+            max-width: 160px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            flex-shrink: 1; /* FIXED: badge shrinks before overflowing */
+            min-width: 0;
         }
 
         .nav-tagline {
@@ -236,15 +237,15 @@
         /* ===================== END NAVBAR ===================== */
 
         /* HERO */
-       #hero-bg {
-    background-image:
-        linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, #000 100%),
-        url('_ (6).jpeg');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+        #hero-bg {
+            background-image:
+                linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, #000 100%),
+                url('_ (6).jpeg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
 
         /* GLASS */
         .glass {
@@ -434,13 +435,13 @@
         }
 
         .user-email-badge {
-            background: rgba(37,99,235,0.15);
-            border: 1px solid rgba(37,99,235,0.3);
+            background: #ffffff;
+            border: 1.5px solid #2563eb;
             border-radius: 99px;
             padding: 5px 14px;
             font-size: 12px;
             font-weight: 600;
-            color: #93b4ff;
+            color: #2563eb;
             max-width: 200px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -456,37 +457,38 @@
 <div id="landing-page" class="page active">
 
     <!-- HERO -->
-<section id="hero-bg" class="flex flex-col min-h-screen">
-    <nav class="site-nav">
-        <div class="nav-pill">
-            <!-- Logo — transparent pill, fox img with blend mode, INTERNFOXX.IN -->
-            <a class="nav-logo-pill" href="#">
-                <img src="Gemini_Generated_Image_554yg8554yg8554y (1) (1).png" alt="InternFoxx Fox">
-                <div class="nav-logo-text">
-                    <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
+    <section id="hero-bg" class="flex flex-col min-h-screen">
+        <nav class="site-nav">
+            <div class="nav-pill">
+                <!-- Logo -->
+                <a class="nav-logo-pill" href="#">
+                    <img src="Gemini_Generated_Image_554yg8554yg8554y (1) (1).png" alt="InternFoxx Fox">
+                    <div class="nav-logo-text">
+                        <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
+                    </div>
+                </a>
+
+                <!-- Nav links -->
+                <div class="nav-links">
+                    <a class="nav-link" onclick="showPage('course-page')">Course</a>
+                    <a class="nav-link" href="#">Resources</a>
+                    <a class="nav-link" href="#">1-on-1 Live</a>
+                    <a class="nav-link" href="mailto:iampranjal569@gmail.com">Contact</a>
                 </div>
-            </a>
 
-            <!-- Nav links -->
-            <div class="nav-links">
-                <a class="nav-link" onclick="showPage('course-page')">Course</a>
-                <a class="nav-link" href="#">Resources</a>
-                <a class="nav-link" href="#">1-on-1 Live</a>
-                <a class="nav-link" href="mailto:iampranjal569@gmail.com">Contact</a>
+                <div class="nav-divider"></div>
+
+                <!-- Right: logged out -->
+                <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
+
+                <!-- Right: logged in — FIXED: min-width:0 + flex-shrink:1 prevents overflow -->
+                <div id="nav-user-info" style="display:none; align-items:center; gap:8px; min-width:0; flex-shrink:1;">
+                    <span id="nav-user-email" class="nav-email-badge"></span>
+                    <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
+                </div>
             </div>
+        </nav>
 
-            <div class="nav-divider"></div>
-
-            <!-- Right: logged out -->
-            <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
-
-            <!-- Right: logged in -->
-            <div id="nav-user-info" class="items-center gap-2" style="display:none;">
-                <span id="nav-user-email" class="nav-email-badge"></span>
-                <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
-            </div>
-        </div>
-    </nav>
         <div class="flex-1 flex flex-col justify-start items-center text-center px-6 md:px-12 relative z-10 pt-40">
             <p style="font-size:11px; font-weight:800; letter-spacing:0.28em; text-transform:uppercase; color:#fff; margin-bottom:20px; text-shadow:0 1px 8px rgba(0,0,0,0.9);">INTERNFOXX: THE FAST TRACK</p>
             <h1 class="large-title uppercase mb-8" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5);"><span style="color:#3b6ef5;">LAND</span> <span style="color:#ffffff;">INTERNSHIP</span><br><span style="color:#ffffff;">IN</span> <span style="color:#3b6ef5;">30 DAYS.</span></h1>
@@ -528,78 +530,77 @@
     </section>
 
     <!-- WHAT WE OFFER -->
-   <!-- WHAT WE OFFER — Blueprint Grid Cards -->
-<section class="py-24 px-6 md:px-12 bg-zinc-950">
-    <h2 class="text-center text-5xl uppercase mb-3 italic tracking-wide">What We <span class="text-blue-600">Offer</span></h2>
-    <p class="text-center text-zinc-500 text-sm mb-16 max-w-md mx-auto">Two ways in. Pick what fits where you are right now.</p>
-    <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+    <section class="py-24 px-6 md:px-12 bg-zinc-950">
+        <h2 class="text-center text-5xl uppercase mb-3 italic tracking-wide">What We <span class="text-blue-600">Offer</span></h2>
+        <p class="text-center text-zinc-500 text-sm mb-16 max-w-md mx-auto">Two ways in. Pick what fits where you are right now.</p>
+        <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
 
-        <!-- Card 1: Course -->
-        <div style="
-            background:#0a0a12;
-            border:1px solid rgba(55,138,221,0.25);
-            border-radius:20px;
-            padding:28px 24px 24px;
-            width:100%; max-width:400px;
-            position:relative; overflow:hidden;
-            transition: border-color 0.3s, transform 0.3s;
-            background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
-            background-size: 28px 28px;
-        " onmouseover="this.style.borderColor='rgba(55,138,221,0.6)';this.style.transform='translateY(-3px)'"
-           onmouseout="this.style.borderColor='rgba(55,138,221,0.25)';this.style.transform='translateY(0)'">
-            <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;position:relative;">6 video sessions</p>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;position:relative;">
-                <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Course</h3>
-                <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#378ADD;letter-spacing:0.02em;">₹299</span>
+            <!-- Card 1: Course -->
+            <div style="
+                background:#0a0a12;
+                border:1px solid rgba(55,138,221,0.25);
+                border-radius:20px;
+                padding:28px 24px 24px;
+                width:100%; max-width:400px;
+                position:relative; overflow:hidden;
+                transition: border-color 0.3s, transform 0.3s;
+                background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
+                background-size: 28px 28px;
+            " onmouseover="this.style.borderColor='rgba(55,138,221,0.6)';this.style.transform='translateY(-3px)'"
+               onmouseout="this.style.borderColor='rgba(55,138,221,0.25)';this.style.transform='translateY(0)'">
+                <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;position:relative;">6 video sessions</p>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;position:relative;">
+                    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Course</h3>
+                    <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#378ADD;letter-spacing:0.02em;">₹299</span>
+                </div>
+                <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;position:relative;">No job portals. No connections. Just a system — find companies, get their contact, send emails that get replies. That's the whole thing.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;position:relative;">
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">LinkedIn Mining</span>
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">200+ Emails</span>
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">CV Template</span>
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">7-Day Plan</span>
+                </div>
+                <button onclick="showPage('course-page')" style="width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:transparent;color:#378ADD;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
+                    onmouseover="this.style.background='#378ADD';this.style.color='#fff'"
+                    onmouseout="this.style.background='transparent';this.style.color='#378ADD'">
+                    View Course
+                </button>
             </div>
-            <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;position:relative;">No job portals. No connections. Just a system — find companies, get their contact, send emails that get replies. That's the whole thing.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;position:relative;">
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">LinkedIn Mining</span>
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">200+ Emails</span>
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">CV Template</span>
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">7-Day Plan</span>
+
+            <!-- Card 2: Full Bundle -->
+            <div style="
+                background:#0a0a12;
+                border:1px solid rgba(55,138,221,0.55);
+                border-radius:20px;
+                padding:28px 24px 24px;
+                width:100%; max-width:400px;
+                position:relative; overflow:hidden;
+                transition: border-color 0.3s, transform 0.3s;
+                background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
+                background-size: 28px 28px;
+            " onmouseover="this.style.borderColor='rgba(55,138,221,0.9)';this.style.transform='translateY(-3px)'"
+               onmouseout="this.style.borderColor='rgba(55,138,221,0.55)';this.style.transform='translateY(0)'">
+                <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;position:relative;">Course + Live Call</p>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;position:relative;">
+                    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Full Bundle</h3>
+                    <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#378ADD;letter-spacing:0.02em;">₹799</span>
+                </div>
+                <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;position:relative;">The full course plus a 40-min call with Pranjal. We'll look at your CV, your targets, and build your exact plan together.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;position:relative;">
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">All 6 Sessions</span>
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">40-Min Call</span>
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">CV Review</span>
+                    <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">Resources Pack</span>
+                </div>
+                <button onclick="openBundle()" style="width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:#378ADD;color:#fff;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
+                    onmouseover="this.style.background='#185FA5';this.style.borderColor='#185FA5'"
+                    onmouseout="this.style.background='#378ADD';this.style.borderColor='#378ADD'">
+                    Book Bundle
+                </button>
             </div>
-            <button onclick="showPage('course-page')" style="width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:transparent;color:#378ADD;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
-                onmouseover="this.style.background='#378ADD';this.style.color='#fff'"
-                onmouseout="this.style.background='transparent';this.style.color='#378ADD'">
-                View Course
-            </button>
+
         </div>
-
-        <!-- Card 2: Full Bundle -->
-        <div style="
-            background:#0a0a12;
-            border:1px solid rgba(55,138,221,0.55);
-            border-radius:20px;
-            padding:28px 24px 24px;
-            width:100%; max-width:400px;
-            position:relative; overflow:hidden;
-            transition: border-color 0.3s, transform 0.3s;
-            background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
-            background-size: 28px 28px;
-        " onmouseover="this.style.borderColor='rgba(55,138,221,0.9)';this.style.transform='translateY(-3px)'"
-           onmouseout="this.style.borderColor='rgba(55,138,221,0.55)';this.style.transform='translateY(0)'">
-            <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;position:relative;">Course + Live Call</p>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;position:relative;">
-                <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Full Bundle</h3>
-                <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#378ADD;letter-spacing:0.02em;">₹799</span>
-            </div>
-            <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;position:relative;">The full course plus a 40-min call with Pranjal. We'll look at your CV, your targets, and build your exact plan together.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;position:relative;">
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">All 6 Sessions</span>
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">40-Min Call</span>
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">CV Review</span>
-                <span style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(55,138,221,0.3);color:#85B7EB;">Resources Pack</span>
-            </div>
-            <button onclick="openBundle()" style="width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:#378ADD;color:#fff;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
-                onmouseover="this.style.background='#185FA5';this.style.borderColor='#185FA5'"
-                onmouseout="this.style.background='#378ADD';this.style.borderColor='#378ADD'">
-                Book Bundle
-            </button>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     <!-- FOUNDERS -->
     <section class="py-24 px-6 md:px-12 bg-black">
@@ -661,7 +662,7 @@
                 </a>
             </div>
 
-            <!-- Nav links — course page uses extra margin-left -->
+            <!-- Tagline -->
             <div class="nav-links nav-links-course">
                 <span class="nav-tagline">Art of Getting Internships</span>
             </div>
@@ -669,18 +670,18 @@
             <div class="nav-divider"></div>
 
             <!-- Logged out -->
-            <div id="course-nav-login-area" style="display:flex; align-items:center; gap:8px;">
+            <div id="course-nav-login-area" style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
                 <button id="course-nav-login" onclick="openLogin()" class="nav-login-btn">Login</button>
             </div>
-            <!-- Logged in -->
-            <div id="course-nav-user" style="display:none; align-items:center; gap:8px;">
+            <!-- Logged in — FIXED: min-width:0 + flex-shrink:1 prevents overflow -->
+            <div id="course-nav-user" style="display:none; align-items:center; gap:8px; min-width:0; flex-shrink:1;">
                 <span id="course-nav-email" class="nav-email-badge"></span>
                 <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
             </div>
         </div>
     </nav>
 
- <div class="max-w-5xl mx-auto px-6 pt-28 pb-12">
+    <div class="max-w-5xl mx-auto px-6 pt-28 pb-12">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-14">
             <div>
                 <h2 class="text-5xl uppercase mb-1">The Curriculum</h2>
@@ -834,6 +835,8 @@
         <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="video" class="text-purple-400 w-8 h-8"></i>
         </div>
+
+        <!-- Shown when user does NOT have course yet -->
         <div id="bundle-full">
             <h3 class="text-3xl uppercase mb-2">Full Bundle</h3>
             <p class="text-zinc-400 text-sm mb-1">All 6 sessions + 40-min live call with Pranjal.</p>
@@ -841,6 +844,8 @@
             <p class="text-4xl text-purple-400 mb-8" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">₹799</p>
             <button onclick="handlePayment('bundle')" class="w-full bg-purple-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-purple-700 transition">Book Bundle · ₹799</button>
         </div>
+
+        <!-- Shown when user ALREADY has course — pay only ₹500 top-up -->
         <div id="bundle-topup" class="hidden">
             <div class="bg-green-900/20 border border-green-800/40 rounded-2xl px-4 py-3 mb-6 flex items-center gap-3">
                 <i data-lucide="check-circle" class="text-green-500 w-4 h-4 flex-shrink-0"></i>
@@ -851,6 +856,7 @@
             <p class="text-4xl text-purple-400 mb-8" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;">₹500</p>
             <button onclick="handlePayment('topup')" class="w-full bg-purple-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-purple-700 transition">Book Call · ₹500</button>
         </div>
+
         <p class="text-zinc-600 text-xs mt-4">Calendar link sent to your email after payment.</p>
     </div>
 </div>
@@ -877,7 +883,7 @@ const lectures = [
     { title: 'Session 2: Types of Companies & Where to Target', duration: '~10 min', video_url: 'https://play.gumlet.io/embed/69f12b1b4d5bf5db18e2b1fc?background=false&autoplay=false&loop=false&disable_player_controls=false' },
     { title: 'Session 3: CV & LinkedIn — Get the Basics Right', duration: '~8 min', video_url: 'https://play.gumlet.io/embed/69f1333da3dc19951f252e1d?background=false&autoplay=false&loop=false&disable_player_controls=false' },
     { title: 'Session 4: Finding the Right Person on LinkedIn', duration: '~65 min', video_url: PLACEHOLDER_GUMLET },
-    { title: 'Session 5: Mails, Messages & Standing Out', duration: '~11 min', video_url: { title: 'Session 5: Mails, Messages & Standing Out', duration: '~55 min', video_url: 'https://play.gumlet.io/embed/69f26716a3dc19951f42bd05' }, },
+    { title: 'Session 5: Mails, Messages & Standing Out', duration: '~55 min', video_url: PLACEHOLDER_GUMLET },
     { title: 'Session 6: Interviews — What to Expect & How to Prep', duration: '~60 min', video_url: PLACEHOLDER_GUMLET },
 ];
 
@@ -900,15 +906,27 @@ async function initAuth() {
 
 async function setUser(user) {
     currentUser = user;
-    const { data } = await sb.from('purchases')
-        .select('id').eq('user_id', user.id).eq('status', 'paid').maybeSingle();
-    hasPurchased = !!data;
 
+    /*
+     * FIXED: Check for course_299 OR bundle_799 purchases.
+     * If user bought either, hasPurchased = true (they get course access).
+     * The top-up ₹500 flow shows automatically in openBundle() below.
+     */
+    const { data } = await sb.from('purchases')
+        .select('product')
+        .eq('user_id', user.id)
+        .eq('status', 'paid')
+        .in('product', ['course_299', 'bundle_799']);
+
+    hasPurchased = !!(data && data.length > 0);
+
+    /* Update landing page nav */
     document.getElementById('nav-get-started').style.display = 'none';
     const ni = document.getElementById('nav-user-info');
     ni.style.display = 'flex';
     document.getElementById('nav-user-email').textContent = user.email;
 
+    /* Update course page nav */
     document.getElementById('course-nav-login-area').style.display = 'none';
     const cn = document.getElementById('course-nav-user');
     cn.style.display = 'flex';
@@ -920,12 +938,16 @@ async function setUser(user) {
 }
 
 function clearUser() {
-    currentUser = null; hasPurchased = false;
+    currentUser = null;
+    hasPurchased = false;
+
     document.getElementById('nav-get-started').style.display = '';
     document.getElementById('nav-user-info').style.display = 'none';
     document.getElementById('course-nav-login-area').style.display = 'flex';
     document.getElementById('course-nav-user').style.display = 'none';
-    renderLectures(); updateCourseUI();
+
+    renderLectures();
+    updateCourseUI();
 }
 
 function renderLectures() {
@@ -993,7 +1015,8 @@ async function handleAuth() {
     errEl.classList.add('hidden');
     if (!email || !password) { errEl.textContent = 'Fill in both fields.'; errEl.classList.remove('hidden'); return; }
     if (password.length < 6) { errEl.textContent = 'Password must be at least 6 characters.'; errEl.classList.remove('hidden'); return; }
-    btn.innerHTML = '<span class="spinner"></span>'; btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>';
+    btn.disabled = true;
     if (currentTab === 'login') {
         const { error } = await sb.auth.signInWithPassword({ email, password });
         if (error) { errEl.textContent = error.message; errEl.classList.remove('hidden'); }
@@ -1020,6 +1043,10 @@ function openPurchase() {
 
 function openBundle() {
     if (!currentUser) { openLogin(); return; }
+    /*
+     * FIXED: If user already has course (hasPurchased = true),
+     * show the ₹500 top-up view. Otherwise show full ₹799 bundle.
+     */
     document.getElementById('bundle-full').classList.toggle('hidden', hasPurchased);
     document.getElementById('bundle-topup').classList.toggle('hidden', !hasPurchased);
     document.getElementById('bundleModal').classList.remove('hidden');
@@ -1028,9 +1055,9 @@ function openBundle() {
 async function handlePayment(type) {
     if (!currentUser) { openLogin(); return; }
     const configs = {
-        course:  { amount: 29900, description: 'Course Access — ₹299',   product: 'course_299',         label: '₹299' },
-        bundle:  { amount: 79900, description: 'Full Bundle — ₹799',      product: 'bundle_799',         label: '₹799' },
-        topup:   { amount: 50000, description: '1-on-1 Live Call — ₹500', product: 'oneonone_500_topup', label: '₹500' },
+        course:  { amount: 29900,  description: 'Course Access — ₹299',    product: 'course_299',         label: '₹299' },
+        bundle:  { amount: 79900,  description: 'Full Bundle — ₹799',       product: 'bundle_799',         label: '₹799' },
+        topup:   { amount: 50000,  description: '1-on-1 Live Call — ₹500',  product: 'oneonone_500_topup', label: '₹500' },
     };
     const cfg = configs[type];
     closeModal(type === 'course' ? 'purchaseModal' : 'bundleModal');
@@ -1041,11 +1068,13 @@ async function handlePayment(type) {
         name: 'InternFoxx',
         description: cfg.description,
         handler: async function(response) {
+            /* Save purchase to Supabase */
             await sb.from('purchases').insert({
                 user_id: currentUser.id,
                 product: cfg.product,
                 amount: cfg.amount / 100,
                 status: 'paid',
+                razorpay_payment_id: response.razorpay_payment_id,
                 access_expires_at: (type === 'course' || type === 'bundle')
                     ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString()
                     : null
@@ -1084,11 +1113,14 @@ function openLogin() {
     switchTab('login');
 }
 
-function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+}
 
 function showToast(msg, type = 'info') {
     const t = document.getElementById('toast');
-    t.textContent = msg; t.className = `toast ${type} show`;
+    t.textContent = msg;
+    t.className = `toast ${type} show`;
     setTimeout(() => t.classList.remove('show'), 3500);
 }
 </script>
