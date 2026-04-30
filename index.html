@@ -471,8 +471,8 @@
                 <!-- Nav links -->
                 <div class="nav-links">
                     <a class="nav-link" onclick="showPage('course-page')">Course</a>
-                    <a class="nav-link" href="#">Resources</a>
-                    <a class="nav-link" href="#">1-on-1 Live</a>
+                    <a class="nav-link" onclick="showPage('course-page'); setTimeout(()=>document.getElementById('resources-section').scrollIntoView({behavior:'smooth'}),300)">Resources</a>
+                    <a class="nav-link" onclick="document.getElementById('bundle-section').scrollIntoView({behavior:'smooth'})">1-on-1 Live</a>
                     <a class="nav-link" href="mailto:iampranjal569@gmail.com">Contact</a>
                 </div>
 
@@ -568,9 +568,9 @@
             </div>
 
             <!-- Card 2: Full Bundle -->
-            <div style="
-                background:#0a0a12;
-                border:1px solid rgba(55,138,221,0.55);
+            <div id="bundle-section" style="
+    background:#0a0a12;
+    border:1px solid rgba(55,138,221,0.55);
                 border-radius:20px;
                 padding:28px 24px 24px;
                 width:100%; max-width:400px;
@@ -729,10 +729,10 @@
         <div class="grid md:grid-cols-2 gap-3 mb-14" id="lectures-grid"></div>
 
         <div class="mb-20">
-            <h3 class="text-lg font-black uppercase mb-5 flex items-center gap-3">
-                <i data-lucide="folder-open" class="text-blue-500 w-5 h-5"></i>
-                Course Resources
-            </h3>
+            <h3 id="resources-section" class="text-lg font-black uppercase mb-5 flex items-center gap-3">
+    <i data-lucide="folder-open" class="text-blue-500 w-5 h-5"></i>
+    Course Resources
+</h3>
             <div id="resources-locked" class="resources-locked-box">
                 <div class="w-12 h-12 bg-blue-600/10 border border-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i data-lucide="lock" class="w-5 h-5 text-blue-500"></i>
