@@ -482,7 +482,7 @@
                 <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
 
                 <!-- Right: logged in — FIXED: min-width:0 + flex-shrink:1 prevents overflow -->
-                <div id="nav-user-info" style="display:none; align-items:center; gap:8px; min-width:0; flex-shrink:1;">
+                  <div id="nav-user-info" style="display:none; align-items:center; gap:8px; min-width:0; flex-shrink:1; flex-direction:row;">
                     <span id="nav-user-email" class="nav-email-badge"></span>
                     <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
                 </div>
@@ -1035,6 +1035,14 @@ async function handleAuth() {
 
 async function handleSignOut() {
     await sb.auth.signOut();
+    currentUser = null;
+    hasPurchased = false;
+    document.getElementById('nav-get-started').style.display = '';
+    document.getElementById('nav-user-info').style.display = 'none';
+    document.getElementById('course-nav-login-area').style.display = 'flex';
+    document.getElementById('course-nav-user').style.display = 'none';
+    renderLectures();
+    updateCourseUI();
     showToast('Signed out.', 'info');
     showPage('landing-page');
 }
