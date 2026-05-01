@@ -278,7 +278,11 @@ async function loadUsers() {
 }
 
 async function loadPayments() {
-  const { data: payments, error: payErr } = await sb   .from('purchases')   .select('id, user_id, product, amount, status, created_at, razorpay_payment_id')   .order('created_at', { ascending: false }); if (payErr) console.error('purchases error:', payErr);
+  const { data: payments, error: payErr } = await sb
+  .from('purchases')
+  .select('id, user_id, product, amount, status, created_at, razorpay_payment_id')
+  .not('razorpay_payment_id', 'is', null)
+  .order('created_at', { ascending: false }); if (payErr) console.error('purchases error:', payErr);
   const userIds = [...new Set((payments||[]).map(p => p.user_id).filter(Boolean))];
   let profileMap = {};
   if (userIds.length) {
