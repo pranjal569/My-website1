@@ -752,7 +752,7 @@ async function initAuth() {
 
 async function setUser(user) {
     currentUser = user;
-    const { data } = await sb.from('purchases')
+    const { data } = await sb.from('user_access')
         .select('product, access_expires_at')
         .eq('user_id', user.id)
         .eq('status', 'paid')
@@ -911,7 +911,7 @@ async function handlePayment(type) {
         name: 'InternFoxx',
         description: cfg.description,
         handler: async function(response) {
-            await sb.from('purchases').insert({
+            await sb.from('user_access').insert({
                 user_id: currentUser.id,
                 product: cfg.product,
                 amount: cfg.amount / 100,
