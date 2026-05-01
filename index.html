@@ -922,6 +922,21 @@ async function handlePayment(type) {
                     : null
             });
             if (type === 'course' || type === 'bundle') {
+    const exp = new Date(Date.now() + 14*24*60*60*1000).toISOString();
+    await sb.from('user_access').upsert({
+        user_id: currentUser.id,
+        has_recorded_access: true,
+        has_session_access: type === 'bundle',
+        access_starts_at: new Date().toISOString(),
+        access_expires_at: exp,
+        updated_at: new Date().toISOString()
+    }, { onConflict: 'user_id' });
+    await sb.from('profiles').upsert({
+        id: currentUser.id,
+        email: currentUser.email
+    }, { onConflict: 'id' });
+}
+            if (type === 'course' || type === 'bundle') {
                 hasPurchased = true;
                 renderLectures();
                 updateCourseUI();
