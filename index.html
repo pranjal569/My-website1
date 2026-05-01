@@ -753,15 +753,15 @@ async function initAuth() {
 async function setUser(user) {
     currentUser = user;
     const { data } = await sb.from('user_access')
-        .select('product, access_expires_at')
+        .select('has_recorded_access, access_expires_at')
         .eq('user_id', user.id)
-        .eq('status', 'paid')
-        .in('product', ['course_299', 'bundle_799']);
+        .single();
+        
 
-    hasPurchased = !!(data && data.some(p => {
-        if (!p.access_expires_at) return false;
-        return new Date(p.access_expires_at) > new Date();
-    }));
+    hasPurchased = !!(data && data.has_recorded_access &&
+        data.access_expires_at &&
+        new Date(data.access_expires_at) > new Date()
+    );
 
     document.getElementById('nav-get-started').style.display = 'none';
     const ni = document.getElementById('nav-user-info');
