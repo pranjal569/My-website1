@@ -926,6 +926,13 @@ async function handlePayment(type) {
         id: currentUser.id,
         email: currentUser.email
     }, { onConflict: 'id' });
+    await sb.from('purchases').insert({
+    user_id: currentUser.id,
+    product: cfg.product,
+    amount: cfg.amount / 100,
+    status: 'paid',
+    razorpay_payment_id: response.razorpay_payment_id
+});
 }
             if (type === 'course' || type === 'bundle') {
                 hasPurchased = true;
