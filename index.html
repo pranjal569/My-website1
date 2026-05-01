@@ -928,10 +928,14 @@ async function handlePayment(type) {
                 showToast('🎉 Course unlocked! Start watching.', 'success');
                 showPage('course-page');
             }
-            if (type === 'bundle' || type === 'topup') {
-                window.open('https://calendly.com/pranjalgunsatiya/30min', '_blank');
-                showToast('✅ Booked! Opening calendar...', 'success');
-            }
+           if (type === 'bundle' || type === 'topup') {
+    const { data } = await sb.from('secrets')
+        .select('value')
+        .eq('key', 'calendly_link')
+        .single();
+    if (data) window.open(data.value, '_blank');
+    showToast('✅ Booked! Opening calendar...', 'success');
+}
         },
         prefill: { email: currentUser.email },
         theme: { color: '#2563eb' },
