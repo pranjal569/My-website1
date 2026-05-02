@@ -642,9 +642,24 @@
         <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-zinc-400 hover:text-white flex items-center gap-2 text-sm font-bold">
             <i data-lucide="x" class="w-4 h-4"></i> Close
         </button>
-        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-zinc-900">
-            <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-        </div>
+        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-zinc-900" style="position:relative;">
+    <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    <div id="video-watermark" style="
+        position:absolute; top:0; left:0; width:100%; height:100%;
+        pointer-events:none; z-index:10;
+        display:flex; align-items:flex-end; justify-content:flex-start;
+        padding:16px;
+    ">
+        <span id="watermark-email" style="
+            color:rgba(255,255,255,0.18);
+            font-size:13px; font-weight:700;
+            font-family:'DM Mono',monospace;
+            text-shadow:0 1px 3px rgba(0,0,0,0.5);
+            user-select:none;
+            letter-spacing:0.05em;
+        "></span>
+    </div>
+</div>
         <p id="video-title" class="text-white font-bold mt-4 text-base md:text-lg"></p>
     </div>
 </div>
@@ -824,6 +839,7 @@ function playSession0() {
     document.getElementById('videoFrame').src = 'https://play.gumlet.io/embed/69f39961609709b32f558904';
     document.getElementById('video-title').textContent = 'Session 0: Watch This First';
     document.getElementById('videoModal').classList.add('open');
+    document.getElementById('watermark-email').textContent = currentUser?.email || '';
 }
 
 function playLecture(i) {
@@ -831,6 +847,7 @@ function playLecture(i) {
     document.getElementById('videoFrame').src = l.video_url + '?autoplay=1';
     document.getElementById('video-title').textContent = l.title;
     document.getElementById('videoModal').classList.add('open');
+    document.getElementById('watermark-email').textContent = currentUser?.email || '';
 }
 
 function closeVideoModal() {
