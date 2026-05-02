@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InternFoxx | Art of Getting Internships</title>
@@ -170,7 +169,6 @@
             .nav-links { display: none; }
             .nav-pill { justify-content: space-between; }
         }
-        /* ===================== END NAVBAR ===================== */
 
         /* HERO */
         #hero-bg {
@@ -293,7 +291,7 @@
 
         /* LARGE TITLE */
         .large-title {
-            font-size: clamp(2.8rem, 9vw, 6.5rem);
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
             line-height: 0.95;
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 0.02em;
@@ -318,6 +316,93 @@
             #course-page .max-w-5xl { padding-top: 80px !important; }
             .curriculum-header { flex-direction: column !important; }
         }
+
+        /* HERO TWO COLUMN */
+        .hero-inner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            width: 100%;
+            max-width: 1208px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .hero-left { flex: 1; min-width: 0; }
+        .hero-right { flex: 0 0 420px; max-width: 420px; }
+
+        @media (max-width: 900px) {
+            .hero-inner { flex-direction: column; align-items: center; text-align: center; padding: 0 16px; }
+            .hero-right { flex: none; width: 100%; max-width: 100%; }
+        }
+
+        /* VIDEO PREVIEW CARD */
+        .preview-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(34,197,94,0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 28px rgba(34,197,94,0.12);
+        }
+        .preview-card:hover {
+            border-color: rgba(34,197,94,0.8);
+            box-shadow: 0 0 40px rgba(34,197,94,0.2);
+            transform: translateY(-3px);
+        }
+        .preview-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+        .preview-thumbnail img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .preview-play-btn {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.35);
+        }
+        .preview-play-circle {
+            width: 60px; height: 60px;
+            background: rgba(37,99,235,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .preview-card:hover .preview-play-circle {
+            background: #2563eb;
+            transform: scale(1.1);
+        }
+        .preview-free-badge {
+            position: absolute;
+            top: 10px; left: 10px;
+            background: rgba(34,197,94,0.2);
+            border: 1px solid rgba(34,197,94,0.5);
+            border-radius: 99px;
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #22c55e;
+            letter-spacing: 0.08em;
+        }
+        .preview-footer {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
     </style>
 </head>
 <body>
@@ -332,7 +417,7 @@
         <nav class="site-nav">
             <div class="nav-pill">
                 <a class="nav-logo-pill" href="#">
-                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777754508/Gemini_Generated_Image_554yg8554yg8554y_1_1_aliorb.png" alt="InternFoxx Fox">
+                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/f_auto,q_auto/Gemini_Generated_Image_554yg8554yg8554y_1_1_copy_smh6er" alt="InternFoxx Fox">
                     <div class="nav-logo-text">
                         <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
                     </div>
@@ -344,7 +429,7 @@
                     <a class="nav-link" href="mailto:iampranjal569@gmail.com">Contact</a>
                 </div>
                 <div class="nav-divider"></div>
-                <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
+                <button id="nav-get-started" onclick="showPage('course-page')" class="nav-getstarted-btn">Watch Free Session</button>
                 <div id="nav-user-info" style="display:none; align-items:center; gap:8px; min-width:0; flex-shrink:1; flex-direction:row;">
                     <span id="nav-user-email" class="nav-email-badge"></span>
                     <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
@@ -352,59 +437,55 @@
             </div>
         </nav>
 
-        <div class="flex-1 flex flex-col justify-start items-center text-center px-6 md:px-12 relative z-10 pt-36 md:pt-40">
-            <p style="font-size:11px; font-weight:800; letter-spacing:0.28em; text-transform:uppercase; color:#fff; margin-bottom:20px; text-shadow:0 1px 8px rgba(0,0,0,0.9);">INTERNFOXX: THE FAST TRACK</p>
-            <h1 class="large-title uppercase mb-8" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5);">
-                <span style="color:#3b6ef5;">LAND</span> <span style="color:#ffffff;">INTERNSHIP</span><br>
-                <span style="color:#ffffff;">IN</span> <span style="color:#3b6ef5;">30 DAYS.</span>
-            </h1>
-            <button onclick="showPage('course-page')"
-                class="w-fit group bg-white text-black pl-6 md:pl-8 pr-2 py-2 rounded-full font-black flex items-center gap-4 md:gap-6 hover:bg-blue-600 hover:text-white transition-all text-sm md:text-base">
-                ART OF COLD REACHOUT
-                <div class="bg-blue-600 p-3 rounded-full group-hover:bg-white transition-all">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-white group-hover:text-blue-600"></i>
-                </div>
-            </button>
-            <!-- FREE PREVIEW SECTION -->
-    <section class="py-8 px-6" style="background:transparent;">
-        <div class="max-w-2xl mx-auto" style="background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:28px 24px;">
-            <p style="text-align:center;font-size:10px;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:#2563eb;margin-bottom:10px;">Free Preview</p>
-            <h2 style="text-align:center;font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,5vw,48px);color:#fff;letter-spacing:0.02em;line-height:1;margin-bottom:8px;">Watch Before You Buy</h2>
-            <p style="text-align:center;font-size:13px;color:#555;margin-bottom:28px;">No login. No payment. Just watch Session 0 and decide.</p>
+        <!-- TWO COLUMN HERO -->
+        <div class="flex-1 flex items-center relative z-10 pt-24 pb-12">
+            <div class="hero-inner">
 
-            <div onclick="playSession0()" style="
-                background:#0a0a12;
-                border:1px solid rgba(34,197,94,0.5);
-                box-shadow: 0 0 24px rgba(34,197,94,0.15);
-                border-radius:20px;
-                overflow:hidden;
-                cursor:pointer;
-                transition:all 0.3s;
-            "
-            onmouseover="this.style.borderColor='rgba(37,99,235,0.6)';this.style.transform='translateY(-3px)'"
-            onmouseout="this.style.borderColor='rgba(37,99,235,0.25)';this.style.transform='translateY(0)'">
-                <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#0a0a20,#080818);display:flex;align-items:center;justify-content:center;position:relative;background-image:linear-gradient(rgba(37,99,235,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.03) 1px,transparent 1px);background-size:32px 32px;">
-                    <div style="text-align:center;z-index:2;position:relative;">
-                        <div style="width:72px;height:72px;background:rgba(37,99,235,0.15);border:2px solid rgba(37,99,235,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-                            <i data-lucide="play" style="width:28px;height:28px;color:#2563eb;fill:#2563eb;"></i>
+                <!-- LEFT: Headline + CTA -->
+                <div class="hero-left">
+                    <p style="font-size:11px; font-weight:800; letter-spacing:0.28em; text-transform:uppercase; color:#fff; margin-bottom:20px; text-shadow:0 1px 8px rgba(0,0,0,0.9);">INTERNFOXX: THE FAST TRACK</p>
+                    <h1 class="large-title uppercase mb-8" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5);">
+                        <span style="color:#3b6ef5;">LAND</span> <span style="color:#ffffff;">INTERNSHIP</span><br>
+                        <span style="color:#ffffff;">IN</span> <span style="color:#3b6ef5;">30 DAYS.</span>
+                    </h1>
+                    <button onclick="showPage('course-page')"
+                        class="w-fit group bg-white text-black pl-6 md:pl-8 pr-2 py-2 rounded-full font-black flex items-center gap-4 md:gap-6 hover:bg-blue-600 hover:text-white transition-all text-sm md:text-base">
+                        ART OF COLD REACHOUT
+                        <div class="bg-blue-600 p-3 rounded-full group-hover:bg-white transition-all">
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-white group-hover:text-blue-600"></i>
                         </div>
-                        <p style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:0.04em;margin-bottom:4px;">SESSION 0: WATCH THIS FIRST</p>
-                        <p style="font-size:12px;color:#555;font-weight:600;">~5 min · Free · No login needed</p>
-                    </div>
-                    <div style="position:absolute;bottom:14px;left:14px;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);border-radius:99px;padding:4px 12px;font-size:11px;font-weight:700;color:#22c55e;letter-spacing:0.08em;">FREE</div>
+                    </button>
                 </div>
-                <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.05);">
-                    <div>
-                        <p style="font-size:13px;font-weight:700;color:#e8e8e8;margin-bottom:2px;">What's the system? How does it actually work?</p>
-                        <p style="font-size:11px;color:#444;">Watch and understand the whole approach in 5 minutes</p>
+
+                <!-- RIGHT: Free Preview Card -->
+                <div class="hero-right">
+                    <div class="preview-card" onclick="playSession0()">
+                        <div style="padding:14px 16px 10px;">
+                            <p style="font-size:9px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:4px;">Free Preview</p>
+                            <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.02em;line-height:1.1;margin-bottom:2px;">Watch Before You Buy</p>
+                            <p style="font-size:11px;color:#555;font-weight:600;">No login. No payment. Just watch.</p>
+                        </div>
+                        <div class="preview-thumbnail">
+                            <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777759144/preview_af29wv.webp" alt="Session 0 Preview"/>
+                            <div class="preview-play-btn">
+                                <div class="preview-play-circle">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                </div>
+                            </div>
+                            <div class="preview-free-badge">FREE</div>
+                        </div>
+                        <div class="preview-footer">
+                            <div>
+                                <p style="font-size:12px;font-weight:700;color:#e8e8e8;margin-bottom:1px;">Session 0: Watch This First</p>
+                                <p style="font-size:10px;color:#444;">~5 min · No login needed</p>
+                            </div>
+                            <div style="background:#2563eb;padding:8px 14px;border-radius:8px;font-size:10px;font-weight:800;color:#fff;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Watch →</div>
+                        </div>
                     </div>
-                    <div style="background:#2563eb;padding:10px 18px;border-radius:10px;font-size:11px;font-weight:800;color:#fff;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;margin-left:16px;flex-shrink:0;">Watch Free →</div>
+                    <p style="text-align:center;font-size:11px;color:#333;margin-top:10px;font-weight:600;">Liked it? <span style="color:#2563eb;cursor:pointer;" onclick="showPage('course-page')">Unlock all 6 sessions for ₹299 →</span></p>
                 </div>
+
             </div>
-            <p style="text-align:center;font-size:11px;color:#333;margin-top:14px;font-weight:600;">Liked it? <span style="color:#2563eb;cursor:pointer;" onclick="showPage('course-page')">Unlock all 6 sessions for ₹299 →</span></p>
-        </div>
-    </section>
-    <!-- END FREE PREVIEW -->
         </div>
     </section>
 
@@ -442,19 +523,9 @@
         <div class="flex flex-col md:flex-row flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto offer-cards-wrap">
 
             <!-- Card 1: Course -->
-            <div style="
-                background:#0a0a12;
-                border:1px solid rgba(55,138,221,0.25);
-                border-radius:20px;
-                padding:28px 24px 24px;
-                width:100%; max-width:420px;
-                position:relative; overflow:hidden;
-                transition: border-color 0.3s, transform 0.3s;
-                background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
-                background-size: 28px 28px;
-                display:flex; flex-direction:column;
-            " onmouseover="this.style.borderColor='rgba(55,138,221,0.6)';this.style.transform='translateY(-3px)'"
-               onmouseout="this.style.borderColor='rgba(55,138,221,0.25)';this.style.transform='translateY(0)'">
+            <div style="background:#0a0a12;border:1px solid rgba(55,138,221,0.25);border-radius:20px;padding:28px 24px 24px;width:100%;max-width:420px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;background-image:linear-gradient(rgba(55,138,221,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(55,138,221,0.04) 1px,transparent 1px);background-size:28px 28px;display:flex;flex-direction:column;"
+                onmouseover="this.style.borderColor='rgba(55,138,221,0.6)';this.style.transform='translateY(-3px)'"
+                onmouseout="this.style.borderColor='rgba(55,138,221,0.25)';this.style.transform='translateY(0)'">
                 <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;">6 video sessions</p>
                 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
                     <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Course</h3>
@@ -476,19 +547,9 @@
             </div>
 
             <!-- Card 2: Full Bundle -->
-            <div id="bundle-section" style="
-                background:#0a0a12;
-                border:1px solid rgba(55,138,221,0.55);
-                border-radius:20px;
-                padding:28px 24px 24px;
-                width:100%; max-width:420px;
-                position:relative; overflow:hidden;
-                transition: border-color 0.3s, transform 0.3s;
-                background-image: linear-gradient(rgba(55,138,221,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(55,138,221,0.04) 1px, transparent 1px);
-                background-size: 28px 28px;
-                display:flex; flex-direction:column;
-            " onmouseover="this.style.borderColor='rgba(55,138,221,0.9)';this.style.transform='translateY(-3px)'"
-               onmouseout="this.style.borderColor='rgba(55,138,221,0.55)';this.style.transform='translateY(0)'">
+            <div id="bundle-section" style="background:#0a0a12;border:1px solid rgba(55,138,221,0.55);border-radius:20px;padding:28px 24px 24px;width:100%;max-width:420px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;background-image:linear-gradient(rgba(55,138,221,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(55,138,221,0.04) 1px,transparent 1px);background-size:28px 28px;display:flex;flex-direction:column;"
+                onmouseover="this.style.borderColor='rgba(55,138,221,0.9)';this.style.transform='translateY(-3px)'"
+                onmouseout="this.style.borderColor='rgba(55,138,221,0.55)';this.style.transform='translateY(0)'">
                 <p style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#378ADD;margin-bottom:16px;">Course + Live Call</p>
                 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
                     <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:0.02em;">Full Bundle</h3>
@@ -563,7 +624,7 @@
                     <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
                 </button>
                 <a class="nav-logo-pill" href="#">
-                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777754508/Gemini_Generated_Image_554yg8554yg8554y_1_1_aliorb.png" alt="InternFoxx Fox">
+                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/f_auto,q_auto/Gemini_Generated_Image_554yg8554yg8554y_1_1_copy_smh6er" alt="InternFoxx Fox">
                     <div class="nav-logo-text">
                         <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
                     </div>
@@ -684,23 +745,11 @@
             <i data-lucide="x" class="w-4 h-4"></i> Close
         </button>
         <div class="aspect-video w-full rounded-2xl overflow-hidden bg-zinc-900" style="position:relative;">
-    <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-    <div id="video-watermark" style="
-        position:absolute; top:0; left:0; width:100%; height:100%;
-        pointer-events:none; z-index:10;
-        display:flex; align-items:flex-end; justify-content:flex-start;
-        padding:16px;
-    ">
-        <span id="watermark-email" style="
-            color:rgba(255,255,255,0.18);
-            font-size:13px; font-weight:700;
-            font-family:'DM Mono',monospace;
-            text-shadow:0 1px 3px rgba(0,0,0,0.5);
-            user-select:none;
-            letter-spacing:0.05em;
-        "></span>
-    </div>
-</div>
+            <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            <div id="video-watermark" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10;display:flex;align-items:flex-end;justify-content:flex-start;padding:16px;">
+                <span id="watermark-email" style="color:rgba(255,255,255,0.18);font-size:13px;font-weight:700;font-family:'DM Mono',monospace;text-shadow:0 1px 3px rgba(0,0,0,0.5);user-select:none;letter-spacing:0.05em;"></span>
+            </div>
+        </div>
         <p id="video-title" class="text-white font-bold mt-4 text-base md:text-lg"></p>
     </div>
 </div>
@@ -813,7 +862,6 @@ async function setUser(user) {
         .select('has_recorded_access, access_expires_at')
         .eq('user_id', user.id)
         .single();
-        
 
     hasPurchased = !!(data && data.has_recorded_access &&
         data.access_expires_at &&
@@ -971,27 +1019,27 @@ async function handlePayment(type) {
         description: cfg.description,
         handler: async function(response) {
             if (type === 'course' || type === 'bundle') {
-    const exp = new Date(Date.now() + 14*24*60*60*1000).toISOString();
-    await sb.from('user_access').upsert({
-        user_id: currentUser.id,
-        has_recorded_access: true,
-        has_session_access: type === 'bundle',
-        access_starts_at: new Date().toISOString(),
-        access_expires_at: exp,
-        updated_at: new Date().toISOString()
-    }, { onConflict: 'user_id' });
-    await sb.from('profiles').upsert({
-        id: currentUser.id,
-        email: currentUser.email
-    }, { onConflict: 'id' });
-    await sb.from('purchases').insert({
-    user_id: currentUser.id,
-    product: cfg.product,
-    amount: cfg.amount / 100,
-    status: 'paid',
-    razorpay_payment_id: response.razorpay_payment_id
-});
-}
+                const exp = new Date(Date.now() + 14*24*60*60*1000).toISOString();
+                await sb.from('user_access').upsert({
+                    user_id: currentUser.id,
+                    has_recorded_access: true,
+                    has_session_access: type === 'bundle',
+                    access_starts_at: new Date().toISOString(),
+                    access_expires_at: exp,
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'user_id' });
+                await sb.from('profiles').upsert({
+                    id: currentUser.id,
+                    email: currentUser.email
+                }, { onConflict: 'id' });
+                await sb.from('purchases').insert({
+                    user_id: currentUser.id,
+                    product: cfg.product,
+                    amount: cfg.amount / 100,
+                    status: 'paid',
+                    razorpay_payment_id: response.razorpay_payment_id
+                });
+            }
             if (type === 'course' || type === 'bundle') {
                 hasPurchased = true;
                 renderLectures();
@@ -999,14 +1047,14 @@ async function handlePayment(type) {
                 showToast('🎉 Course unlocked! You have 14 days access.', 'success');
                 showPage('course-page');
             }
-           if (type === 'bundle' || type === 'topup') {
-    const { data } = await sb.from('secrets')
-        .select('value')
-        .eq('key', 'calendly_link')
-        .single();
-    if (data) window.open(data.value, '_blank');
-    showToast('✅ Booked! Opening calendar...', 'success');
-}
+            if (type === 'bundle' || type === 'topup') {
+                const { data } = await sb.from('secrets')
+                    .select('value')
+                    .eq('key', 'calendly_link')
+                    .single();
+                if (data) window.open(data.value, '_blank');
+                showToast('✅ Booked! Opening calendar...', 'success');
+            }
         },
         prefill: { email: currentUser.email },
         theme: { color: '#2563eb' },
