@@ -65,7 +65,6 @@
             height: 32px;
             object-fit: contain;
             display: block;
-            mix-blend-mode: multiply;
             filter: contrast(1.15) saturate(1.1);
         }
         .nav-logo-text {
@@ -330,28 +329,38 @@
             padding: 0 32px;
         }
         .hero-left { flex: 1; min-width: 0; }
-        .hero-right { flex: 0 0 420px; max-width: 420px; }
+        .hero-right { flex: 0 0 440px; max-width: 440px; }
 
         @media (max-width: 900px) {
             .hero-inner { flex-direction: column; align-items: center; text-align: center; padding: 0 16px; }
             .hero-right { flex: none; width: 100%; max-width: 100%; }
         }
 
+        /* VIDEO PREVIEW CARD WRAPPER — dark semi-transparent container */
+        .preview-card-wrapper {
+            background: rgba(8, 8, 12, 0.68);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 28px;
+            padding: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 8px 48px rgba(0,0,0,0.55);
+        }
+
         /* VIDEO PREVIEW CARD */
         .preview-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(16px);
+            background: rgba(255,255,255,0.04);
             border: 1px solid rgba(34,197,94,0.5);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 0 28px rgba(34,197,94,0.12);
+            box-shadow: 0 0 28px rgba(34,197,94,0.10);
         }
         .preview-card:hover {
             border-color: rgba(34,197,94,0.8);
-            box-shadow: 0 0 40px rgba(34,197,94,0.2);
-            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(34,197,94,0.18);
+            transform: translateY(-2px);
         }
         .preview-thumbnail {
             position: relative;
@@ -403,6 +412,18 @@
             justify-content: space-between;
             border-top: 1px solid rgba(255,255,255,0.06);
         }
+        .preview-unlock-hint {
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255,255,255,0.25);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .preview-unlock-hint span {
+            color: #2563eb;
+            cursor: pointer;
+        }
+        .preview-unlock-hint span:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -417,7 +438,8 @@
         <nav class="site-nav">
             <div class="nav-pill">
                 <a class="nav-logo-pill" href="#">
-                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/f_auto,q_auto/Gemini_Generated_Image_554yg8554yg8554y_1_1_copy_smh6er" alt="InternFoxx Fox">
+                    <!-- FIX: updated logo URL + removed mix-blend-mode -->
+                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777754508/Gemini_Generated_Image_554yg8554yg8554y_1_1_aliorb.png" alt="InternFoxx Fox">
                     <div class="nav-logo-text">
                         <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
                     </div>
@@ -429,7 +451,8 @@
                     <a class="nav-link" href="mailto:iampranjal569@gmail.com">Contact</a>
                 </div>
                 <div class="nav-divider"></div>
-                <button id="nav-get-started" onclick="showPage('course-page')" class="nav-getstarted-btn">Watch Free Session</button>
+                <!-- FIX: changed to "Get Started" and opens login modal -->
+                <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
                 <div id="nav-user-info" style="display:none; align-items:center; gap:8px; min-width:0; flex-shrink:1; flex-direction:row;">
                     <span id="nav-user-email" class="nav-email-badge"></span>
                     <button onclick="handleSignOut()" class="nav-signout-btn">Sign Out</button>
@@ -457,32 +480,34 @@
                     </button>
                 </div>
 
-                <!-- RIGHT: Free Preview Card -->
+                <!-- RIGHT: Free Preview Card — FIX: wrapped in dark semi-transparent container -->
                 <div class="hero-right">
-                    <div class="preview-card" onclick="playSession0()">
-                        <div style="padding:14px 16px 10px;">
-                            <p style="font-size:9px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:4px;">Free Preview</p>
-                            <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.02em;line-height:1.1;margin-bottom:2px;">Watch Before You Buy</p>
-                            <p style="font-size:11px;color:#555;font-weight:600;">No login. No payment. Just watch.</p>
-                        </div>
-                        <div class="preview-thumbnail">
-                            <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777759144/preview_af29wv.webp" alt="Session 0 Preview"/>
-                            <div class="preview-play-btn">
-                                <div class="preview-play-circle">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <div class="preview-card-wrapper">
+                        <div class="preview-card" onclick="playSession0()">
+                            <div style="padding:14px 16px 10px;">
+                                <p style="font-size:9px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:4px;">Free Preview</p>
+                                <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.02em;line-height:1.1;margin-bottom:2px;">Watch Before You Buy</p>
+                                <p style="font-size:11px;color:#777;font-weight:600;">No login. No payment. Just watch.</p>
+                            </div>
+                            <div class="preview-thumbnail">
+                                <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777759144/preview_af29wv.webp" alt="Session 0 Preview"/>
+                                <div class="preview-play-btn">
+                                    <div class="preview-play-circle">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                    </div>
                                 </div>
+                                <div class="preview-free-badge">FREE</div>
                             </div>
-                            <div class="preview-free-badge">FREE</div>
-                        </div>
-                        <div class="preview-footer">
-                            <div>
-                                <p style="font-size:12px;font-weight:700;color:#e8e8e8;margin-bottom:1px;">Session 0: Watch This First</p>
-                                <p style="font-size:10px;color:#444;">~5 min · No login needed</p>
+                            <div class="preview-footer">
+                                <div>
+                                    <p style="font-size:12px;font-weight:700;color:#e8e8e8;margin-bottom:1px;">Session 0: Watch This First</p>
+                                    <p style="font-size:10px;color:#555;">~5 min · No login needed</p>
+                                </div>
+                                <div style="background:#2563eb;padding:8px 14px;border-radius:8px;font-size:10px;font-weight:800;color:#fff;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Watch →</div>
                             </div>
-                            <div style="background:#2563eb;padding:8px 14px;border-radius:8px;font-size:10px;font-weight:800;color:#fff;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Watch →</div>
                         </div>
+                        <p class="preview-unlock-hint">Liked it? <span onclick="showPage('course-page')">Unlock all 6 sessions for ₹299 →</span></p>
                     </div>
-                    <p style="text-align:center;font-size:11px;color:#333;margin-top:10px;font-weight:600;">Liked it? <span style="color:#2563eb;cursor:pointer;" onclick="showPage('course-page')">Unlock all 6 sessions for ₹299 →</span></p>
                 </div>
 
             </div>
@@ -624,7 +649,7 @@
                     <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
                 </button>
                 <a class="nav-logo-pill" href="#">
-                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/f_auto,q_auto/Gemini_Generated_Image_554yg8554yg8554y_1_1_copy_smh6er" alt="InternFoxx Fox">
+                    <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777754508/Gemini_Generated_Image_554yg8554yg8554y_1_1_aliorb.png" alt="InternFoxx Fox">
                     <div class="nav-logo-text">
                         <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
                     </div>
