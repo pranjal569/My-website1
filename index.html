@@ -486,7 +486,7 @@
                         <div class="preview-card" onclick="playSession0()">
                             <div style="padding:14px 16px 10px;">
                                 <p style="font-size:9px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:4px;">Free Preview</p>
-                                <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.02em;line-height:1.1;margin-bottom:2px;">Watch Before You Buy</p>
+                                <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.02em;line-height:1.1;margin-bottom:2px;">See How It Works</p>
                                 <p style="font-size:11px;color:#777;font-weight:600;">No login. No payment. Just watch.</p>
                             </div>
                             <div class="preview-thumbnail">
@@ -769,10 +769,12 @@
         <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-zinc-400 hover:text-white flex items-center gap-2 text-sm font-bold">
             <i data-lucide="x" class="w-4 h-4"></i> Close
         </button>
-        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-zinc-900" style="position:relative;">
+        <!-- video-container is the fullscreen target -->
+        <div id="video-container" class="aspect-video w-full rounded-2xl overflow-hidden bg-zinc-900" style="position:relative;">
             <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-            <div id="video-watermark" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10;display:flex;align-items:flex-end;justify-content:flex-start;padding:16px;">
-                <span id="watermark-email" style="color:rgba(255,255,255,0.18);font-size:13px;font-weight:700;font-family:'DM Mono',monospace;text-shadow:0 1px 3px rgba(0,0,0,0.5);user-select:none;letter-spacing:0.05em;"></span>
+            <!-- Floating watermark layer — lives INSIDE the fullscreen container -->
+            <div id="video-watermark" style="position:absolute;inset:0;pointer-events:none;z-index:9999;overflow:hidden;">
+                <span id="watermark-email" style="position:absolute;color:rgba(255,255,255,0.22);font-size:13px;font-weight:700;font-family:monospace;text-shadow:0 1px 4px rgba(0,0,0,0.7);user-select:none;letter-spacing:0.06em;white-space:nowrap;transition:none;"></span>
             </div>
         </div>
         <p id="video-title" class="text-white font-bold mt-4 text-base md:text-lg"></p>
@@ -949,11 +951,83 @@ function updateCourseUI() {
     lucide.createIcons();
 }
 
+/* ---- WATERMARK FLOATING SYSTEM ---- */
+let _wmInterval = null;
+let _wmEmail = '';
+
+function _startWatermark(email) {
+    _wmEmail = email || 'internfoxx.in';
+    const el = document.getElementById('watermark-email');
+    if (!el) return;
+    el.textContent = _wmEmail;
+    _moveWatermark();
+    if (_wmInterval) clearInterval(_wmInterval);
+    // move to a new random spot every 3 seconds
+    _wmInterval = setInterval(_moveWatermark, 3000);
+}
+
+function _moveWatermark() {
+    const el = document.getElementById('watermark-email');
+    const container = document.getElementById('video-container');
+    if (!el || !container) return;
+
+    // Get actual rendered size
+    const cw = container.offsetWidth  || 800;
+    const ch = container.offsetHeight || 450;
+    const ew = el.offsetWidth  || 200;
+    const eh = el.offsetHeight || 20;
+
+    // Random position with padding so it never clips off edge
+    const pad = 20;
+    const maxX = Math.max(cw - ew - pad, pad);
+    const maxY = Math.max(ch - eh - pad, pad);
+    const x = pad + Math.random() * maxX;
+    const y = pad + Math.random() * maxY;
+
+    el.style.left = x + 'px';
+    el.style.top  = y + 'px';
+}
+
+function _stopWatermark() {
+    if (_wmInterval) { clearInterval(_wmInterval); _wmInterval = null; }
+}
+
+/* Fullscreen change: re-attach watermark layer into the fullscreen element */
+function _onFullscreenChange() {
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement;
+    const wm = document.getElementById('video-watermark');
+    const container = document.getElementById('video-container');
+    if (!wm || !container) return;
+
+    if (fsEl) {
+        // Move watermark into whichever element became fullscreen (usually the container itself)
+        if (!fsEl.contains(wm)) fsEl.appendChild(wm);
+        wm.style.position = 'fixed';
+        wm.style.inset = '0';
+        wm.style.width = '100%';
+        wm.style.height = '100%';
+    } else {
+        // Back to normal — return watermark to container
+        if (!container.contains(wm)) container.appendChild(wm);
+        wm.style.position = 'absolute';
+        wm.style.inset = '0';
+        wm.style.width = '100%';
+        wm.style.height = '100%';
+    }
+    // Recalculate position immediately after resize
+    setTimeout(_moveWatermark, 100);
+}
+
+document.addEventListener('fullscreenchange',       _onFullscreenChange);
+document.addEventListener('webkitfullscreenchange', _onFullscreenChange);
+document.addEventListener('mozfullscreenchange',    _onFullscreenChange);
+
+/* ---- VIDEO OPEN / CLOSE ---- */
 function playSession0() {
     document.getElementById('videoFrame').src = 'https://play.gumlet.io/embed/69f39961609709b32f558904';
     document.getElementById('video-title').textContent = 'Session 0: Watch This First';
     document.getElementById('videoModal').classList.add('open');
-    document.getElementById('watermark-email').textContent = currentUser?.email || '';
+    _startWatermark(currentUser?.email || '');
 }
 
 function playLecture(i) {
@@ -961,12 +1035,13 @@ function playLecture(i) {
     document.getElementById('videoFrame').src = l.video_url + '?autoplay=1';
     document.getElementById('video-title').textContent = l.title;
     document.getElementById('videoModal').classList.add('open');
-    document.getElementById('watermark-email').textContent = currentUser?.email || '';
+    _startWatermark(currentUser?.email || '');
 }
 
 function closeVideoModal() {
     document.getElementById('videoModal').classList.remove('open');
     document.getElementById('videoFrame').src = '';
+    _stopWatermark();
 }
 
 function switchTab(tab) {
