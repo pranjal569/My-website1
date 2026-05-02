@@ -248,6 +248,17 @@
         }
         .video-modal.open { display: flex; }
 
+        /* When OUR container goes fullscreen */
+        #video-container:-webkit-full-screen { width: 100vw !important; height: 100vh !important; aspect-ratio: unset !important; border-radius: 0 !important; }
+        #video-container:-moz-full-screen    { width: 100vw !important; height: 100vh !important; aspect-ratio: unset !important; border-radius: 0 !important; }
+        #video-container:fullscreen          { width: 100vw !important; height: 100vh !important; aspect-ratio: unset !important; border-radius: 0 !important; }
+        #video-container:fullscreen #videoFrame,
+        #video-container:-webkit-full-screen #videoFrame,
+        #video-container:-moz-full-screen #videoFrame { width: 100% !important; height: 100% !important; }
+        #video-container:fullscreen #watermark-email,
+        #video-container:-webkit-full-screen #watermark-email,
+        #video-container:-moz-full-screen #watermark-email { font-size: 16px !important; padding: 6px 14px !important; }
+
         /* SCROLLBAR */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #000; }
@@ -486,7 +497,7 @@
                         <div class="preview-card" onclick="playSession0()">
                             <div style="padding:14px 16px 10px;">
                                 <p style="font-size:9px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:4px;">Free Preview</p>
-                                <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.02em;line-height:1.1;margin-bottom:2px;">See How It Works</p>
+                                <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:0.02em;line-height:1.1;margin-bottom:2px;">See how it works</p>
                                 <p style="font-size:11px;color:#777;font-weight:600;">No login. No payment. Just watch.</p>
                             </div>
                             <div class="preview-thumbnail">
@@ -770,13 +781,13 @@
             <i data-lucide="x" class="w-4 h-4"></i> Close
         </button>
         <!-- NO allowfullscreen on iframe — our container goes fullscreen instead, keeping watermark alive -->
-        <div id="video-container" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#111;">
+        <div id="video-container" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;background:#111;">
             <iframe id="videoFrame" width="100%" height="100%" frameborder="0"
                 allow="autoplay; encrypted-media"
-                style="display:block;width:100%;height:100%;border:none;"></iframe>
-            <!-- Watermark always lives here — never leaves this container -->
-            <div id="video-watermark" style="position:absolute;inset:0;pointer-events:none;z-index:9999;">
-                <span id="watermark-email" style="position:absolute;left:20px;bottom:20px;color:rgba(255,255,255,0.22);font-size:13px;font-weight:700;font-family:monospace;text-shadow:0 1px 4px rgba(0,0,0,0.8);user-select:none;letter-spacing:0.06em;white-space:nowrap;"></span>
+                style="display:block;width:100%;height:100%;border:none;position:absolute;top:0;left:0;"></iframe>
+            <!-- Watermark always lives here — overflow:visible so it's never clipped -->
+            <div id="video-watermark" style="position:absolute;inset:0;pointer-events:none;z-index:9999;overflow:visible;">
+                <span id="watermark-email" style="position:absolute;left:20px;bottom:20px;color:#fff;font-size:14px;font-weight:800;font-family:monospace;background:rgba(0,0,0,0.55);padding:4px 10px;border-radius:6px;text-shadow:0 1px 3px rgba(0,0,0,0.9);user-select:none;letter-spacing:0.06em;white-space:nowrap;border:1px solid rgba(255,255,255,0.12);"></span>
             </div>
             <!-- Custom fullscreen button -->
             <button onclick="_toggleFullscreen()" id="fs-btn"
