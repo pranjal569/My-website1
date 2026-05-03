@@ -161,7 +161,6 @@
             color: #888; letter-spacing: 0.01em; white-space: nowrap;
         }
 
-        /* Mobile nav */
         @media (max-width: 768px) {
             .site-nav { padding: 10px 12px; }
             .nav-tagline, .nav-divider { display: none; }
@@ -189,7 +188,6 @@
             border: 1px solid var(--border);
         }
 
-        /* FOUNDER CARDS */
         .founder-card {
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.07);
@@ -206,7 +204,6 @@
             .avatar { width: 64px; height: 64px; min-width: 64px; min-height: 64px; }
         }
 
-        /* RESOURCE CARD */
         .resource-card {
             background: rgba(255,255,255,0.02);
             border: 1px solid #222;
@@ -228,7 +225,6 @@
             text-align: center;
         }
 
-        /* COURSE CARDS */
         .course-card {
             transition: all 0.3s ease;
             border: 1px solid #222;
@@ -236,7 +232,6 @@
         }
         .course-card:hover { border-color: #2563eb; background: rgba(37,99,235,0.05); transform: translateY(-2px); }
 
-        /* VIDEO MODAL */
         .video-modal {
             display: none;
             position: fixed; inset: 0;
@@ -248,7 +243,6 @@
         }
         .video-modal.open { display: flex; }
 
-        /* When OUR container goes fullscreen */
         #video-container:-webkit-full-screen { width: 100vw !important; height: 100vh !important; aspect-ratio: unset !important; border-radius: 0 !important; }
         #video-container:-moz-full-screen    { width: 100vw !important; height: 100vh !important; aspect-ratio: unset !important; border-radius: 0 !important; }
         #video-container:fullscreen          { width: 100vw !important; height: 100vh !important; aspect-ratio: unset !important; border-radius: 0 !important; }
@@ -259,17 +253,14 @@
         #video-container:-webkit-full-screen #watermark-email,
         #video-container:-moz-full-screen #watermark-email { font-size: 16px !important; padding: 6px 14px !important; }
 
-        /* SCROLLBAR */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #000; }
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
 
-        /* TABS */
         .tab-btn { transition: all 0.2s; }
         .tab-btn.active { background: #2563eb; color: white; }
         .tab-btn:not(.active) { background: transparent; color: #71717a; }
 
-        /* SPINNER */
         .spinner {
             border: 2px solid rgba(255,255,255,0.2);
             border-top-color: white;
@@ -280,7 +271,6 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* TOAST */
         .toast {
             position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
             padding: 12px 28px; border-radius: 99px; font-size: 13px; font-weight: 700;
@@ -291,7 +281,6 @@
         .toast.error { background: #dc2626; color: white; }
         .toast.info { background: #2563eb; color: white; }
 
-        /* TICKER */
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -299,7 +288,6 @@
         .animate-scroll { animation: scroll 20s linear infinite; width: max-content; }
         .animate-scroll:hover { animation-play-state: paused; }
 
-        /* LARGE TITLE */
         .large-title {
             font-size: clamp(2.8rem, 7vw, 5.5rem);
             line-height: 0.95;
@@ -307,7 +295,6 @@
             letter-spacing: 0.02em;
         }
 
-        /* FOOTER */
         .site-footer {
             border-top: 1px solid #111;
             background: #000;
@@ -316,18 +303,15 @@
         }
         @media (max-width: 640px) { .site-footer { padding: 20px; } }
 
-        /* OFFER CARDS responsive */
         @media (max-width: 640px) {
             .offer-cards-wrap { flex-direction: column; align-items: center; }
         }
 
-        /* Course page responsive */
         @media (max-width: 640px) {
             #course-page .max-w-5xl { padding-top: 80px !important; }
             .curriculum-header { flex-direction: column !important; }
         }
 
-        /* HERO TWO COLUMN */
         .hero-inner {
             display: flex;
             flex-direction: row;
@@ -347,7 +331,6 @@
             .hero-right { flex: none; width: 100%; max-width: 100%; }
         }
 
-        /* VIDEO PREVIEW CARD WRAPPER — dark semi-transparent container */
         .preview-card-wrapper {
             background: rgba(8, 8, 12, 0.68);
             backdrop-filter: blur(18px);
@@ -358,7 +341,6 @@
             box-shadow: 0 8px 48px rgba(0,0,0,0.55);
         }
 
-        /* VIDEO PREVIEW CARD */
         .preview-card {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(34,197,94,0.5);
@@ -444,12 +426,10 @@
 <!-- ===================== LANDING PAGE ===================== -->
 <div id="landing-page" class="page active">
 
-    <!-- HERO -->
     <section id="hero-bg" class="flex flex-col min-h-screen">
         <nav class="site-nav">
             <div class="nav-pill">
                 <a class="nav-logo-pill" href="#">
-                    <!-- FIX: updated logo URL + removed mix-blend-mode -->
                     <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/v1777754508/Gemini_Generated_Image_554yg8554yg8554y_1_1_aliorb.png" alt="InternFoxx Fox">
                     <div class="nav-logo-text">
                         <span class="intern">INTERN</span><span class="foxx">FOXX</span><span class="dotin">.IN</span>
@@ -462,7 +442,6 @@
                     <a class="nav-link" href="mailto:iampranjal569@gmail.com">Contact</a>
                 </div>
                 <div class="nav-divider"></div>
-                <!-- FIX: changed to "Get Started" and opens login modal -->
                 <button id="nav-get-started" onclick="openLogin()" class="nav-getstarted-btn">Get Started</button>
                 <div id="nav-user-info" style="display:none; align-items:center; gap:8px; min-width:0; flex-shrink:1; flex-direction:row;">
                     <span id="nav-user-email" class="nav-email-badge"></span>
@@ -471,11 +450,8 @@
             </div>
         </nav>
 
-        <!-- TWO COLUMN HERO -->
         <div class="flex-1 flex items-center relative z-10 pt-24 pb-12">
             <div class="hero-inner">
-
-                <!-- LEFT: Headline + CTA -->
                 <div class="hero-left">
                     <p style="font-size:11px; font-weight:800; letter-spacing:0.28em; text-transform:uppercase; color:#fff; margin-bottom:20px; text-shadow:0 1px 8px rgba(0,0,0,0.9);">INTERNFOXX: THE FAST TRACK</p>
                     <h1 class="large-title uppercase mb-8" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5);">
@@ -491,7 +467,6 @@
                     </button>
                 </div>
 
-                <!-- RIGHT: Free Preview Card — FIX: wrapped in dark semi-transparent container -->
                 <div class="hero-right">
                     <div class="preview-card-wrapper">
                         <div class="preview-card" onclick="playSession0()">
@@ -520,7 +495,6 @@
                         <p class="preview-unlock-hint">Liked it? <span onclick="showPage('course-page')">Unlock all 6 sessions for ₹299 →</span></p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -558,7 +532,6 @@
         <p class="text-center text-zinc-500 text-sm mb-12 md:mb-16 max-w-md mx-auto">Two ways in. Pick what fits where you are right now.</p>
         <div class="flex flex-col md:flex-row flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto offer-cards-wrap">
 
-            <!-- Card 1: Course -->
             <div style="background:#0a0a12;border:1px solid rgba(55,138,221,0.25);border-radius:20px;padding:28px 24px 24px;width:100%;max-width:420px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;background-image:linear-gradient(rgba(55,138,221,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(55,138,221,0.04) 1px,transparent 1px);background-size:28px 28px;display:flex;flex-direction:column;"
                 onmouseover="this.style.borderColor='rgba(55,138,221,0.6)';this.style.transform='translateY(-3px)'"
                 onmouseout="this.style.borderColor='rgba(55,138,221,0.25)';this.style.transform='translateY(0)'">
@@ -582,7 +555,6 @@
                 </button>
             </div>
 
-            <!-- Card 2: Full Bundle -->
             <div id="bundle-section" style="background:#0a0a12;border:1px solid rgba(55,138,221,0.55);border-radius:20px;padding:28px 24px 24px;width:100%;max-width:420px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;background-image:linear-gradient(rgba(55,138,221,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(55,138,221,0.04) 1px,transparent 1px);background-size:28px 28px;display:flex;flex-direction:column;"
                 onmouseover="this.style.borderColor='rgba(55,138,221,0.9)';this.style.transform='translateY(-3px)'"
                 onmouseout="this.style.borderColor='rgba(55,138,221,0.55)';this.style.transform='translateY(0)'">
@@ -613,8 +585,6 @@
         <h2 class="text-center text-4xl md:text-5xl uppercase mb-3 italic tracking-wide">The <span class="text-blue-600">Founders</span></h2>
         <p class="text-center text-zinc-500 text-sm mb-12 md:mb-16 max-w-xl mx-auto">Built by people who've been exactly where you are — and figured out what actually works.</p>
         <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-8 max-w-4xl mx-auto">
-
-            <!-- Pranjal -->
             <div class="founder-card p-6 md:p-8 w-full md:w-[380px] flex gap-5 items-start">
                 <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/f_auto,q_auto/Co1_1_nizkja" class="avatar">
                 <div style="min-width:0;">
@@ -626,8 +596,6 @@
                     <p class="text-zinc-400 text-sm leading-relaxed">Spent months applying on portals with zero results. Switched to cold outreach and everything changed. Built this course around what actually worked — so you crack it in days, not months.</p>
                 </div>
             </div>
-
-            <!-- Mansi -->
             <div class="founder-card p-6 md:p-8 w-full md:w-[380px] flex gap-5 items-start">
                 <img src="https://res.cloudinary.com/dtelcbxtn/image/upload/f_auto,q_auto/Co2_1_uxxd3n" class="avatar">
                 <div style="min-width:0;">
@@ -639,7 +607,6 @@
                     <p class="text-zinc-400 text-sm leading-relaxed">Runs everything behind the scenes — from the first click to your first reply. Makes sure your experience is smooth, fast, and actually gets you results.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -647,7 +614,6 @@
         <p class="text-zinc-500 text-[11px] font-black tracking-[0.4em] uppercase">© 2026 InternFoxx &nbsp;|&nbsp; Unlock Opportunities</p>
     </footer>
 </div>
-<!-- END LANDING PAGE -->
 
 
 <!-- ===================== COURSE PAGE ===================== -->
@@ -702,7 +668,6 @@
             </div>
         </div>
 
-        <!-- Session 0 -->
         <div class="mb-8 md:mb-10">
             <div onclick="playSession0()" class="course-card bg-zinc-900/50 p-4 md:p-5 rounded-2xl flex items-center justify-between cursor-pointer">
                 <div class="flex items-center gap-3 md:gap-4">
@@ -724,7 +689,6 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10 md:mb-14" id="lectures-grid"></div>
 
-        <!-- Resources -->
         <div class="mb-16 md:mb-20">
             <h3 id="resources-section" class="text-base md:text-lg font-black uppercase mb-5 flex items-center gap-3">
                 <i data-lucide="folder-open" class="text-blue-500 w-5 h-5"></i>
@@ -754,7 +718,6 @@
             </div>
         </div>
 
-        <!-- Terms -->
         <div class="border-t border-zinc-900 pt-10 md:pt-14 space-y-8">
             <div>
                 <h4 class="text-blue-500 font-black uppercase text-xs tracking-widest mb-3">Terms & Privacy</h4>
@@ -771,7 +734,6 @@
         <p class="text-zinc-500 text-[11px] font-black tracking-[0.4em] uppercase">© 2026 InternFoxx &nbsp;|&nbsp; Unlock Opportunities</p>
     </footer>
 </div>
-<!-- END COURSE PAGE -->
 
 
 <!-- VIDEO MODAL -->
@@ -780,16 +742,13 @@
         <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-zinc-400 hover:text-white flex items-center gap-2 text-sm font-bold">
             <i data-lucide="x" class="w-4 h-4"></i> Close
         </button>
-        <!-- NO allowfullscreen on iframe — our container goes fullscreen instead, keeping watermark alive -->
         <div id="video-container" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;background:#111;">
             <iframe id="videoFrame" width="100%" height="100%" frameborder="0"
                 allow="autoplay; encrypted-media"
                 style="display:block;width:100%;height:100%;border:none;position:absolute;top:0;left:0;"></iframe>
-            <!-- Watermark always lives here — overflow:visible so it's never clipped -->
             <div id="video-watermark" style="position:absolute;inset:0;pointer-events:none;z-index:9999;overflow:visible;">
                 <span id="watermark-email" style="position:absolute;left:20px;bottom:20px;color:#fff;font-size:14px;font-weight:800;font-family:monospace;background:rgba(0,0,0,0.55);padding:4px 10px;border-radius:6px;text-shadow:0 1px 3px rgba(0,0,0,0.9);user-select:none;letter-spacing:0.06em;white-space:nowrap;border:1px solid rgba(255,255,255,0.12);"></span>
             </div>
-            <!-- Custom fullscreen button -->
             <button onclick="_toggleFullscreen()" id="fs-btn"
                 style="position:absolute;bottom:10px;right:10px;z-index:10000;background:rgba(0,0,0,0.6);border:none;border-radius:6px;padding:7px 9px;cursor:pointer;color:#fff;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;font-family:monospace;letter-spacing:0.05em;transition:background 0.2s;"
                 onmouseover="this.style.background='rgba(37,99,235,0.75)'"
@@ -803,27 +762,50 @@
     </div>
 </div>
 
-<!-- LOGIN MODAL -->
+
+<!-- ===================== LOGIN MODAL — with Forgot Password ===================== -->
 <div id="loginModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
     <div class="glass p-8 md:p-10 rounded-[40px] max-w-sm w-full text-center relative shadow-2xl">
         <button onclick="closeModal('loginModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
         <div class="text-3xl uppercase mb-2">InternFoxx</div>
-        <p class="text-zinc-500 text-xs mb-8 italic">"Just your resources, anytime you want."</p>
-        <div class="flex bg-zinc-900 rounded-2xl p-1 mb-6">
+        <p class="text-zinc-500 text-xs mb-6 italic">"Just your resources, anytime you want."</p>
+
+        <!-- Tabs: Login | Sign Up — hidden on forgot screen -->
+        <div id="auth-tabs" class="flex bg-zinc-900 rounded-2xl p-1 mb-6">
             <button id="tab-login" class="tab-btn active flex-1 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest" onclick="switchTab('login')">Login</button>
             <button id="tab-signup" class="tab-btn flex-1 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest" onclick="switchTab('signup')">Sign Up</button>
         </div>
+
+        <!-- Forgot password heading (hidden by default) -->
+        <div id="forgot-heading" class="hidden mb-4">
+            <p class="text-zinc-300 text-sm font-bold">Enter your email and we'll send you a reset link.</p>
+        </div>
+
         <div class="space-y-3 text-left">
             <input id="auth-email" type="email" placeholder="Your email" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
             <input id="auth-password" type="password" placeholder="Password (min 6 chars)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
         </div>
-        <p id="confirm-notice" class="hidden text-zinc-500 text-xs mt-3 text-left">📧 We'll send a confirmation email — check your inbox!</p>
-        <button id="auth-btn" onclick="handleAuth()" class="w-full mt-5 bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition flex items-center justify-center gap-2">
+
+        <!-- Forgot password link — only shown on login tab -->
+        <p id="forgot-link-row" class="text-right mt-2">
+            <span onclick="switchTab('forgot')" class="text-xs text-zinc-500 hover:text-blue-400 cursor-pointer font-bold transition-colors">Forgot password?</span>
+        </p>
+
+        <p id="confirm-notice" class="hidden text-zinc-500 text-xs mt-3 text-left">We'll log you in instantly — no email confirmation needed!</p>
+
+        <button id="auth-btn" onclick="handleAuth()" class="w-full mt-4 bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition flex items-center justify-center gap-2">
             <span id="auth-btn-text">Login</span>
         </button>
+
+        <!-- Back to login link — shown only on forgot screen -->
+        <p id="back-to-login-row" class="hidden mt-4">
+            <span onclick="switchTab('login')" class="text-xs text-zinc-500 hover:text-blue-400 cursor-pointer font-bold transition-colors">← Back to login</span>
+        </p>
+
         <p id="auth-error" class="text-red-400 text-xs mt-3 hidden"></p>
     </div>
 </div>
+
 
 <!-- PURCHASE MODAL -->
 <div id="purchaseModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
@@ -973,13 +955,7 @@ function updateCourseUI() {
     lucide.createIcons();
 }
 
-/* ================================================================
-   WATERMARK — floating, random position, survives fullscreen
-   ROOT CAUSE FIX: iframe has NO allowfullscreen, so the browser
-   can never take the iframe's own document fullscreen.
-   Instead _toggleFullscreen() requests fullscreen on #video-container
-   which already contains the watermark div — so it's always visible.
-   ================================================================ */
+/* ---- WATERMARK ---- */
 let _wmInterval = null;
 
 function _startWatermark(email) {
@@ -1011,7 +987,6 @@ function _stopWatermark() {
     if (_wmInterval) { clearInterval(_wmInterval); _wmInterval = null; }
 }
 
-/* Custom fullscreen toggle — always uses #video-container, never the iframe */
 function _toggleFullscreen() {
     const c = document.getElementById('video-container');
     const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
@@ -1022,21 +997,18 @@ function _toggleFullscreen() {
     }
 }
 
-/* Update the FS button icon and fix watermark positioning on change */
 function _onFsChange() {
     const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
     const expand = document.getElementById('fs-icon-expand');
     const shrink = document.getElementById('fs-icon-shrink');
     if (expand) expand.style.display = isFs ? 'none'  : 'block';
     if (shrink) shrink.style.display = isFs ? 'block' : 'none';
-    /* In fullscreen the container fills the screen — recalc watermark bounds */
     setTimeout(_moveWatermark, 150);
 }
 document.addEventListener('fullscreenchange',       _onFsChange);
 document.addEventListener('webkitfullscreenchange', _onFsChange);
 document.addEventListener('mozfullscreenchange',    _onFsChange);
 
-/* ---- VIDEO OPEN / CLOSE ---- */
 function playSession0() {
     document.getElementById('videoFrame').src = 'https://play.gumlet.io/embed/69f39961609709b32f558904';
     document.getElementById('video-title').textContent = 'Session 0: Watch This First';
@@ -1060,35 +1032,97 @@ function closeVideoModal() {
     _stopWatermark();
 }
 
+/* ---- AUTH TABS ---- */
 function switchTab(tab) {
     currentTab = tab;
-    document.getElementById('tab-login').classList.toggle('active', tab === 'login');
-    document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
-    document.getElementById('auth-btn-text').textContent = tab === 'login' ? 'Login' : 'Create Account';
-    document.getElementById('confirm-notice').classList.toggle('hidden', tab === 'login');
-    document.getElementById('auth-error').classList.add('hidden');
+
+    const tabs       = document.getElementById('auth-tabs');
+    const pwField    = document.getElementById('auth-password');
+    const forgotRow  = document.getElementById('forgot-link-row');
+    const backRow    = document.getElementById('back-to-login-row');
+    const notice     = document.getElementById('confirm-notice');
+    const heading    = document.getElementById('forgot-heading');
+    const errEl      = document.getElementById('auth-error');
+
+    errEl.classList.add('hidden');
+
+    if (tab === 'login') {
+        tabs.classList.remove('hidden');
+        document.getElementById('tab-login').classList.add('active');
+        document.getElementById('tab-signup').classList.remove('active');
+        pwField.style.display = '';
+        pwField.placeholder = 'Password (min 6 chars)';
+        forgotRow.classList.remove('hidden');
+        backRow.classList.add('hidden');
+        notice.classList.add('hidden');
+        heading.classList.add('hidden');
+        document.getElementById('auth-btn-text').textContent = 'Login';
+
+    } else if (tab === 'signup') {
+        tabs.classList.remove('hidden');
+        document.getElementById('tab-signup').classList.add('active');
+        document.getElementById('tab-login').classList.remove('active');
+        pwField.style.display = '';
+        pwField.placeholder = 'Password (min 6 chars)';
+        forgotRow.classList.add('hidden');
+        backRow.classList.add('hidden');
+        notice.classList.remove('hidden');
+        heading.classList.add('hidden');
+        document.getElementById('auth-btn-text').textContent = 'Create Account';
+
+    } else if (tab === 'forgot') {
+        tabs.classList.add('hidden');
+        pwField.style.display = 'none';
+        forgotRow.classList.add('hidden');
+        backRow.classList.remove('hidden');
+        notice.classList.add('hidden');
+        heading.classList.remove('hidden');
+        document.getElementById('auth-btn-text').textContent = 'Send Reset Link';
+    }
 }
 
+/* ---- HANDLE AUTH ---- */
 async function handleAuth() {
-    const email = document.getElementById('auth-email').value.trim();
+    const email  = document.getElementById('auth-email').value.trim();
     const password = document.getElementById('auth-password').value;
-    const errEl = document.getElementById('auth-error');
-    const btn = document.getElementById('auth-btn');
+    const errEl  = document.getElementById('auth-error');
+    const btn    = document.getElementById('auth-btn');
     errEl.classList.add('hidden');
-    if (!email || !password) { errEl.textContent = 'Fill in both fields.'; errEl.classList.remove('hidden'); return; }
-    if (password.length < 6) { errEl.textContent = 'Password must be at least 6 characters.'; errEl.classList.remove('hidden'); return; }
+
+    if (!email) { errEl.textContent = 'Please enter your email.'; errEl.classList.remove('hidden'); return; }
+
+    if (currentTab !== 'forgot' && !password) {
+        errEl.textContent = 'Please enter your password.'; errEl.classList.remove('hidden'); return;
+    }
+    if (currentTab !== 'forgot' && password.length < 6) {
+        errEl.textContent = 'Password must be at least 6 characters.'; errEl.classList.remove('hidden'); return;
+    }
+
     btn.innerHTML = '<span class="spinner"></span>';
     btn.disabled = true;
+
     if (currentTab === 'login') {
         const { error } = await sb.auth.signInWithPassword({ email, password });
         if (error) { errEl.textContent = error.message; errEl.classList.remove('hidden'); }
         else showToast('Welcome back! 🎉', 'success');
-    } else {
+
+    } else if (currentTab === 'signup') {
         const { error } = await sb.auth.signUp({ email, password });
         if (error) { errEl.textContent = error.message; errEl.classList.remove('hidden'); }
-        else { showToast('Check your email to confirm! 📧', 'success'); closeModal('loginModal'); }
+        else showToast('Account created! You are now logged in 🎉', 'success');
+
+    } else if (currentTab === 'forgot') {
+        const { error } = await sb.auth.resetPasswordForEmail(email, {
+            redirectTo: 'https://internfoxx.in'
+        });
+        if (error) { errEl.textContent = error.message; errEl.classList.remove('hidden'); }
+        else {
+            showToast('Reset link sent! Check your inbox 📧', 'success');
+            closeModal('loginModal');
+        }
     }
-    btn.innerHTML = `<span id="auth-btn-text">${currentTab === 'login' ? 'Login' : 'Create Account'}</span>`;
+
+    btn.innerHTML = '<span id="auth-btn-text">' + (currentTab === 'login' ? 'Login' : currentTab === 'signup' ? 'Create Account' : 'Send Reset Link') + '</span>';
     btn.disabled = false;
 }
 
