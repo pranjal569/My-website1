@@ -861,16 +861,19 @@ initAuth();
    ================================================================ */
 window.addEventListener('load', function() {
     const hash = window.location.hash;
-    if (hash.includes('type=recovery') || hash.includes('error_code=otp_expired')) {
-        // Clean the URL so it doesn't stay in browser history
+    if (hash.includes('error_code=otp_expired')) {
         history.replaceState(null, '', window.location.pathname);
-        if (hash.includes('error_code=otp_expired')) {
-            showToast('Reset link expired. Please request a new one.', 'error');
-            openLogin();
-            setTimeout(() => switchTab('forgot'), 300);
-        } else {
-            openResetModal();
-        }
+        showToast('Reset link expired. Please request a new one.', 'error');
+        openLogin();
+        setTimeout(() => switchTab('forgot'), 300);
+    }
+    if (hash.includes('type=recovery')) {
+        history.replaceState(null, '', window.location.pathname);
+        sb.auth.onAuthStateChange((event, session) => {
+            if (event === 'PASSWORD_RECOVERY') {
+                openResetModal();
+            }
+        });
     }
 });
 
