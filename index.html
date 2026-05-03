@@ -859,23 +859,20 @@ initAuth();
    site with #type=recovery in the URL. We detect that and open the
    reset password modal automatically.
    ================================================================ */
-window.addEventListener('load', function() {
-    const hash = window.location.hash;
-    if (hash.includes('error_code=otp_expired')) {
-        history.replaceState(null, '', window.location.pathname);
-        showToast('Reset link expired. Please request a new one.', 'error');
-        openLogin();
-        setTimeout(() => switchTab('forgot'), 300);
-    }
-    if (hash.includes('type=recovery')) {
-        history.replaceState(null, '', window.location.pathname);
-        sb.auth.onAuthStateChange((event, session) => {
-            if (event === 'PASSWORD_RECOVERY') {
-                openResetModal();
-            }
-        });
-    }
-});
+async function initAuth() {
+    const { data: { session } } = await sb.auth.getSession();
+    if (session?.user) await setUser(session.user);
+    
+    sb.auth.onAuthStateChange(async (event, session) => {
+        if (event === 'PASSWORD_RECOVERY') {
+            history.replaceState(null, '', window.location.pathname);
+            openResetModal();
+            return;
+        }
+        if (session?.user) await setUser(session.user);
+        else clearUser();
+    });
+}
 
 function openResetModal() {
     document.getElementById('resetModal').classList.remove('hidden');
