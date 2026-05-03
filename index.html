@@ -28,7 +28,6 @@
         .page { display: none; min-height: 100vh; }
         .page.active { display: block; }
 
-        /* ===================== NAVBAR ===================== */
         .site-nav {
             width: 100%;
             padding: 16px 32px;
@@ -168,7 +167,6 @@
             .nav-pill { justify-content: space-between; }
         }
 
-        /* HERO */
         #hero-bg {
             background-image:
                 linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, #000 100%),
@@ -306,7 +304,6 @@
         @media (max-width: 640px) {
             .offer-cards-wrap { flex-direction: column; align-items: center; }
         }
-
         @media (max-width: 640px) {
             #course-page .max-w-5xl { padding-top: 80px !important; }
             .curriculum-header { flex-direction: column !important; }
@@ -340,7 +337,6 @@
             border: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 8px 48px rgba(0,0,0,0.55);
         }
-
         .preview-card {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(34,197,94,0.5);
@@ -360,62 +356,37 @@
             aspect-ratio: 16/9;
             overflow: hidden;
         }
-        .preview-thumbnail img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+        .preview-thumbnail img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .preview-play-btn {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
             background: rgba(0,0,0,0.35);
         }
         .preview-play-circle {
             width: 60px; height: 60px;
             background: rgba(37,99,235,0.9);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             transition: all 0.2s;
         }
-        .preview-card:hover .preview-play-circle {
-            background: #2563eb;
-            transform: scale(1.1);
-        }
+        .preview-card:hover .preview-play-circle { background: #2563eb; transform: scale(1.1); }
         .preview-free-badge {
-            position: absolute;
-            top: 10px; left: 10px;
+            position: absolute; top: 10px; left: 10px;
             background: rgba(34,197,94,0.2);
             border: 1px solid rgba(34,197,94,0.5);
-            border-radius: 99px;
-            padding: 3px 10px;
-            font-size: 10px;
-            font-weight: 700;
-            color: #22c55e;
-            letter-spacing: 0.08em;
+            border-radius: 99px; padding: 3px 10px;
+            font-size: 10px; font-weight: 700; color: #22c55e; letter-spacing: 0.08em;
         }
         .preview-footer {
             padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
             border-top: 1px solid rgba(255,255,255,0.06);
         }
         .preview-unlock-hint {
-            text-align: center;
-            font-size: 11px;
-            color: rgba(255,255,255,0.25);
-            margin-top: 10px;
-            font-weight: 600;
+            text-align: center; font-size: 11px;
+            color: rgba(255,255,255,0.25); margin-top: 10px; font-weight: 600;
         }
-        .preview-unlock-hint span {
-            color: #2563eb;
-            cursor: pointer;
-        }
+        .preview-unlock-hint span { color: #2563eb; cursor: pointer; }
         .preview-unlock-hint span:hover { text-decoration: underline; }
     </style>
 </head>
@@ -531,7 +502,6 @@
         <h2 class="text-center text-4xl md:text-5xl uppercase mb-3 italic tracking-wide">What We <span class="text-blue-600">Offer</span></h2>
         <p class="text-center text-zinc-500 text-sm mb-12 md:mb-16 max-w-md mx-auto">Two ways in. Pick what fits where you are right now.</p>
         <div class="flex flex-col md:flex-row flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto offer-cards-wrap">
-
             <div style="background:#0a0a12;border:1px solid rgba(55,138,221,0.25);border-radius:20px;padding:28px 24px 24px;width:100%;max-width:420px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;background-image:linear-gradient(rgba(55,138,221,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(55,138,221,0.04) 1px,transparent 1px);background-size:28px 28px;display:flex;flex-direction:column;"
                 onmouseover="this.style.borderColor='rgba(55,138,221,0.6)';this.style.transform='translateY(-3px)'"
                 onmouseout="this.style.borderColor='rgba(55,138,221,0.25)';this.style.transform='translateY(0)'">
@@ -550,9 +520,7 @@
                 </div>
                 <button onclick="showPage('course-page')" style="margin-top:auto;width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:transparent;color:#378ADD;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
                     onmouseover="this.style.background='#378ADD';this.style.color='#fff'"
-                    onmouseout="this.style.background='transparent';this.style.color='#378ADD'">
-                    View Course
-                </button>
+                    onmouseout="this.style.background='transparent';this.style.color='#378ADD'">View Course</button>
             </div>
 
             <div id="bundle-section" style="background:#0a0a12;border:1px solid rgba(55,138,221,0.55);border-radius:20px;padding:28px 24px 24px;width:100%;max-width:420px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;background-image:linear-gradient(rgba(55,138,221,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(55,138,221,0.04) 1px,transparent 1px);background-size:28px 28px;display:flex;flex-direction:column;"
@@ -572,11 +540,8 @@
                 </div>
                 <button onclick="openBundle()" style="margin-top:auto;width:100%;padding:13px;border-radius:10px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid #378ADD;background:#378ADD;color:#fff;font-family:'DM Sans',sans-serif;transition:all 0.2s;"
                     onmouseover="this.style.background='#185FA5';this.style.borderColor='#185FA5'"
-                    onmouseout="this.style.background='#378ADD';this.style.borderColor='#378ADD'">
-                    Book Bundle
-                </button>
+                    onmouseout="this.style.background='#378ADD';this.style.borderColor='#378ADD'">Book Bundle</button>
             </div>
-
         </div>
     </section>
 
@@ -618,7 +583,6 @@
 
 <!-- ===================== COURSE PAGE ===================== -->
 <div id="course-page" class="page">
-
     <nav class="site-nav">
         <div class="nav-pill">
             <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
@@ -763,46 +727,57 @@
 </div>
 
 
-<!-- ===================== LOGIN MODAL — with Forgot Password ===================== -->
+<!-- ===================== LOGIN MODAL ===================== -->
 <div id="loginModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[200] hidden p-4">
     <div class="glass p-8 md:p-10 rounded-[40px] max-w-sm w-full text-center relative shadow-2xl">
         <button onclick="closeModal('loginModal')" class="absolute top-6 right-6 text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
         <div class="text-3xl uppercase mb-2">InternFoxx</div>
         <p class="text-zinc-500 text-xs mb-6 italic">"Just your resources, anytime you want."</p>
-
-        <!-- Tabs: Login | Sign Up — hidden on forgot screen -->
         <div id="auth-tabs" class="flex bg-zinc-900 rounded-2xl p-1 mb-6">
             <button id="tab-login" class="tab-btn active flex-1 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest" onclick="switchTab('login')">Login</button>
             <button id="tab-signup" class="tab-btn flex-1 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest" onclick="switchTab('signup')">Sign Up</button>
         </div>
-
-        <!-- Forgot password heading (hidden by default) -->
         <div id="forgot-heading" class="hidden mb-4">
-            <p class="text-zinc-300 text-sm font-bold">Enter your email and we'll send you a reset link.</p>
+            <p class="text-zinc-300 text-sm font-bold">Enter your email and we'll send a reset link.</p>
         </div>
-
         <div class="space-y-3 text-left">
             <input id="auth-email" type="email" placeholder="Your email" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
             <input id="auth-password" type="password" placeholder="Password (min 6 chars)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
         </div>
-
-        <!-- Forgot password link — only shown on login tab -->
         <p id="forgot-link-row" class="text-right mt-2">
             <span onclick="switchTab('forgot')" class="text-xs text-zinc-500 hover:text-blue-400 cursor-pointer font-bold transition-colors">Forgot password?</span>
         </p>
-
-        <p id="confirm-notice" class="hidden text-zinc-500 text-xs mt-3 text-left">We'll log you in instantly — no email confirmation needed!</p>
-
+        <p id="confirm-notice" class="hidden text-zinc-500 text-xs mt-3 text-left">You'll be logged in instantly!</p>
         <button id="auth-btn" onclick="handleAuth()" class="w-full mt-4 bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition flex items-center justify-center gap-2">
             <span id="auth-btn-text">Login</span>
         </button>
-
-        <!-- Back to login link — shown only on forgot screen -->
         <p id="back-to-login-row" class="hidden mt-4">
             <span onclick="switchTab('login')" class="text-xs text-zinc-500 hover:text-blue-400 cursor-pointer font-bold transition-colors">← Back to login</span>
         </p>
-
         <p id="auth-error" class="text-red-400 text-xs mt-3 hidden"></p>
+    </div>
+</div>
+
+
+<!-- ===================== RESET PASSWORD MODAL ===================== -->
+<!-- This opens automatically when user arrives from a password reset email link -->
+<div id="resetModal" class="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-[250] hidden p-4">
+    <div class="glass p-8 md:p-10 rounded-[40px] max-w-sm w-full text-center relative shadow-2xl">
+        <div class="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="key" class="text-blue-500 w-8 h-8"></i>
+        </div>
+        <h3 class="text-3xl uppercase mb-2">New Password</h3>
+        <p class="text-zinc-500 text-sm mb-6">Choose a new password for your account.</p>
+        <div class="space-y-3 text-left">
+            <input id="reset-password" type="password" placeholder="New password (min 6 chars)"
+                class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
+            <input id="reset-password-confirm" type="password" placeholder="Confirm new password"
+                class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition" />
+        </div>
+        <p id="reset-error" class="text-red-400 text-xs mt-3 hidden"></p>
+        <button id="reset-btn" onclick="handlePasswordReset()" class="w-full mt-5 bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition flex items-center justify-center gap-2">
+            <span id="reset-btn-text">Set New Password</span>
+        </button>
     </div>
 </div>
 
@@ -878,6 +853,65 @@ lucide.createIcons();
 renderLectures();
 initAuth();
 
+/* ================================================================
+   PASSWORD RESET — detect recovery link on page load
+   When user clicks reset link in email, Supabase redirects to your
+   site with #type=recovery in the URL. We detect that and open the
+   reset password modal automatically.
+   ================================================================ */
+window.addEventListener('load', function() {
+    const hash = window.location.hash;
+    if (hash.includes('type=recovery') || hash.includes('error_code=otp_expired')) {
+        // Clean the URL so it doesn't stay in browser history
+        history.replaceState(null, '', window.location.pathname);
+        if (hash.includes('error_code=otp_expired')) {
+            showToast('Reset link expired. Please request a new one.', 'error');
+            openLogin();
+            setTimeout(() => switchTab('forgot'), 300);
+        } else {
+            openResetModal();
+        }
+    }
+});
+
+function openResetModal() {
+    document.getElementById('resetModal').classList.remove('hidden');
+    lucide.createIcons();
+}
+
+async function handlePasswordReset() {
+    const pw  = document.getElementById('reset-password').value;
+    const pw2 = document.getElementById('reset-password-confirm').value;
+    const errEl = document.getElementById('reset-error');
+    const btn   = document.getElementById('reset-btn');
+    errEl.classList.add('hidden');
+
+    if (!pw || pw.length < 6) {
+        errEl.textContent = 'Password must be at least 6 characters.';
+        errEl.classList.remove('hidden'); return;
+    }
+    if (pw !== pw2) {
+        errEl.textContent = 'Passwords do not match.';
+        errEl.classList.remove('hidden'); return;
+    }
+
+    btn.innerHTML = '<span class="spinner"></span>';
+    btn.disabled = true;
+
+    const { error } = await sb.auth.updateUser({ password: pw });
+    if (error) {
+        errEl.textContent = error.message;
+        errEl.classList.remove('hidden');
+    } else {
+        document.getElementById('resetModal').classList.add('hidden');
+        showToast('Password updated! You are now logged in ✅', 'success');
+    }
+
+    btn.innerHTML = '<span id="reset-btn-text">Set New Password</span>';
+    btn.disabled = false;
+}
+
+/* ---- MAIN AUTH ---- */
 async function initAuth() {
     const { data: { session } } = await sb.auth.getSession();
     if (session?.user) await setUser(session.user);
@@ -957,7 +991,6 @@ function updateCourseUI() {
 
 /* ---- WATERMARK ---- */
 let _wmInterval = null;
-
 function _startWatermark(email) {
     const el = document.getElementById('watermark-email');
     if (!el) return;
@@ -966,7 +999,6 @@ function _startWatermark(email) {
     _moveWatermark();
     _wmInterval = setInterval(_moveWatermark, 2800);
 }
-
 function _moveWatermark() {
     const el = document.getElementById('watermark-email');
     const container = document.getElementById('video-container');
@@ -982,21 +1014,15 @@ function _moveWatermark() {
     el.style.top  = y + 'px';
     el.style.bottom = 'auto';
 }
-
 function _stopWatermark() {
     if (_wmInterval) { clearInterval(_wmInterval); _wmInterval = null; }
 }
-
 function _toggleFullscreen() {
     const c = document.getElementById('video-container');
     const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
-    if (!isFs) {
-        (c.requestFullscreen || c.webkitRequestFullscreen || c.mozRequestFullScreen).call(c);
-    } else {
-        (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen).call(document);
-    }
+    if (!isFs) { (c.requestFullscreen || c.webkitRequestFullscreen || c.mozRequestFullScreen).call(c); }
+    else { (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen).call(document); }
 }
-
 function _onFsChange() {
     const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
     const expand = document.getElementById('fs-icon-expand');
@@ -1015,7 +1041,6 @@ function playSession0() {
     document.getElementById('videoModal').classList.add('open');
     _startWatermark(currentUser?.email || '');
 }
-
 function playLecture(i) {
     const l = lectures[i];
     document.getElementById('videoFrame').src = l.video_url + '?autoplay=1';
@@ -1023,7 +1048,6 @@ function playLecture(i) {
     document.getElementById('videoModal').classList.add('open');
     _startWatermark(currentUser?.email || '');
 }
-
 function closeVideoModal() {
     const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
     if (isFs) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
@@ -1035,15 +1059,13 @@ function closeVideoModal() {
 /* ---- AUTH TABS ---- */
 function switchTab(tab) {
     currentTab = tab;
-
-    const tabs       = document.getElementById('auth-tabs');
-    const pwField    = document.getElementById('auth-password');
-    const forgotRow  = document.getElementById('forgot-link-row');
-    const backRow    = document.getElementById('back-to-login-row');
-    const notice     = document.getElementById('confirm-notice');
-    const heading    = document.getElementById('forgot-heading');
-    const errEl      = document.getElementById('auth-error');
-
+    const tabs      = document.getElementById('auth-tabs');
+    const pwField   = document.getElementById('auth-password');
+    const forgotRow = document.getElementById('forgot-link-row');
+    const backRow   = document.getElementById('back-to-login-row');
+    const notice    = document.getElementById('confirm-notice');
+    const heading   = document.getElementById('forgot-heading');
+    const errEl     = document.getElementById('auth-error');
     errEl.classList.add('hidden');
 
     if (tab === 'login') {
@@ -1051,25 +1073,21 @@ function switchTab(tab) {
         document.getElementById('tab-login').classList.add('active');
         document.getElementById('tab-signup').classList.remove('active');
         pwField.style.display = '';
-        pwField.placeholder = 'Password (min 6 chars)';
         forgotRow.classList.remove('hidden');
         backRow.classList.add('hidden');
         notice.classList.add('hidden');
         heading.classList.add('hidden');
         document.getElementById('auth-btn-text').textContent = 'Login';
-
     } else if (tab === 'signup') {
         tabs.classList.remove('hidden');
         document.getElementById('tab-signup').classList.add('active');
         document.getElementById('tab-login').classList.remove('active');
         pwField.style.display = '';
-        pwField.placeholder = 'Password (min 6 chars)';
         forgotRow.classList.add('hidden');
         backRow.classList.add('hidden');
         notice.classList.remove('hidden');
         heading.classList.add('hidden');
         document.getElementById('auth-btn-text').textContent = 'Create Account';
-
     } else if (tab === 'forgot') {
         tabs.classList.add('hidden');
         pwField.style.display = 'none';
@@ -1081,22 +1099,16 @@ function switchTab(tab) {
     }
 }
 
-/* ---- HANDLE AUTH ---- */
 async function handleAuth() {
-    const email  = document.getElementById('auth-email').value.trim();
+    const email    = document.getElementById('auth-email').value.trim();
     const password = document.getElementById('auth-password').value;
-    const errEl  = document.getElementById('auth-error');
-    const btn    = document.getElementById('auth-btn');
+    const errEl    = document.getElementById('auth-error');
+    const btn      = document.getElementById('auth-btn');
     errEl.classList.add('hidden');
 
     if (!email) { errEl.textContent = 'Please enter your email.'; errEl.classList.remove('hidden'); return; }
-
-    if (currentTab !== 'forgot' && !password) {
-        errEl.textContent = 'Please enter your password.'; errEl.classList.remove('hidden'); return;
-    }
-    if (currentTab !== 'forgot' && password.length < 6) {
-        errEl.textContent = 'Password must be at least 6 characters.'; errEl.classList.remove('hidden'); return;
-    }
+    if (currentTab !== 'forgot' && !password) { errEl.textContent = 'Please enter your password.'; errEl.classList.remove('hidden'); return; }
+    if (currentTab !== 'forgot' && password.length < 6) { errEl.textContent = 'Password must be at least 6 characters.'; errEl.classList.remove('hidden'); return; }
 
     btn.innerHTML = '<span class="spinner"></span>';
     btn.disabled = true;
@@ -1122,20 +1134,20 @@ async function handleAuth() {
         }
     }
 
-    btn.innerHTML = '<span id="auth-btn-text">' + (currentTab === 'login' ? 'Login' : currentTab === 'signup' ? 'Create Account' : 'Send Reset Link') + '</span>';
+    btn.innerHTML = '<span id="auth-btn-text">' +
+        (currentTab === 'login' ? 'Login' : currentTab === 'signup' ? 'Create Account' : 'Send Reset Link') +
+        '</span>';
     btn.disabled = false;
 }
 
 async function handleSignOut() {
     await sb.auth.signOut();
-    currentUser = null;
-    hasPurchased = false;
+    currentUser = null; hasPurchased = false;
     document.getElementById('nav-get-started').style.display = '';
     document.getElementById('nav-user-info').style.display = 'none';
     document.getElementById('course-nav-login-area').style.display = 'flex';
     document.getElementById('course-nav-user').style.display = 'none';
-    renderLectures();
-    updateCourseUI();
+    renderLectures(); updateCourseUI();
     showToast('Signed out.', 'info');
     showPage('landing-page');
 }
@@ -1144,7 +1156,6 @@ function openPurchase() {
     if (!currentUser) { openLogin(); return; }
     document.getElementById('purchaseModal').classList.remove('hidden');
 }
-
 function openBundle() {
     if (!currentUser) { openLogin(); return; }
     document.getElementById('bundle-full').classList.toggle('hidden', hasPurchased);
@@ -1189,8 +1200,6 @@ async function handlePayment(type) {
                     status: 'paid',
                     razorpay_payment_id: response.razorpay_payment_id
                 });
-            }
-            if (type === 'course' || type === 'bundle') {
                 hasPurchased = true;
                 renderLectures();
                 updateCourseUI();
@@ -1198,10 +1207,7 @@ async function handlePayment(type) {
                 showPage('course-page');
             }
             if (type === 'bundle' || type === 'topup') {
-                const { data } = await sb.from('secrets')
-                    .select('value')
-                    .eq('key', 'calendly_link')
-                    .single();
+                const { data } = await sb.from('secrets').select('value').eq('key', 'calendly_link').single();
                 if (data) window.open(data.value, '_blank');
                 showToast('✅ Booked! Opening calendar...', 'success');
             }
@@ -1219,7 +1225,6 @@ function showPage(id) {
     window.scrollTo(0, 0);
     lucide.createIcons();
 }
-
 function openLogin() {
     document.getElementById('loginModal').classList.remove('hidden');
     document.getElementById('auth-email').value = '';
@@ -1227,11 +1232,7 @@ function openLogin() {
     document.getElementById('auth-error').classList.add('hidden');
     switchTab('login');
 }
-
-function closeModal(id) {
-    document.getElementById(id).classList.add('hidden');
-}
-
+function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 function showToast(msg, type = 'info') {
     const t = document.getElementById('toast');
     t.textContent = msg;
